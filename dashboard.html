@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – BuildX</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main {
+            flex: 1;
+            padding: 36px 48px;
+        }
+
+        /* Welcome banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--navy-2), var(--navy-3));
+            border: 1px solid var(--navy-4);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--amber), var(--purple), var(--cyan));
+        }
+
+        .welcome-left h2 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .welcome-left p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            backdrop-filter: blur(16px);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .stat-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card-num {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .stat-card-label {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* Section headers */
+        .dash-section {
+            margin-bottom: 32px;
+        }
+
+        .dash-section-hdr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .dash-section-hdr h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        /* Order / Hire cards */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: var(--transition);
+        }
+
+        .item-card:hover {
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .item-icon {
+            font-size: 2rem;
+            width: 48px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .item-meta {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+        }
+
+        .item-price {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--amber);
+            white-space: nowrap;
+        }
+
+        /* Status chips */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .status-confirmed {
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--amber);
+        }
+
+        .status-completed {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 48px;
+            color: var(--gray-500);
+        }
+
+        .empty-state .ei {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            opacity: 0.35;
+        }
+
+        /* Loader */
+        .loader {
+            text-align: center;
+            padding: 60px;
+            color: var(--gray-400);
+        }
+
+        /* Profile section */
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            backdrop-filter: blur(16px);
+        }
+
+        .profile-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--amber), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-info p {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+
+        .profile-meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .profile-meta span {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        footer {
+            background: var(--navy-2);
+            border-top: 1px solid var(--navy-4);
+            padding: 18px 40px;
+            text-align: center;
+        }
+
+        .footer-copy {
+            color: var(--gray-600);
+            font-size: 0.8rem;
+        }
+
+        .footer-copy span {
+            color: var(--amber);
+            font-weight: 800;
+        }
+
+        @media(max-width:1024px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:768px) {
+            .main {
+                padding: 24px 16px;
+            }
+
+            .welcome-banner {
+                padding: 24px;
+            }
+
+            .welcome-icon {
+                display: none;
+            }
+        }
+
+        @media(max-width:480px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+        }
+
+        /* Seller Form Styles */
+        .seller-form-container {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .seller-form-container.open {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--gray-400);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--amber);
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="logo-icon">⚒️</div>
+            Build<span>X</span>
+        </a>
+        <div class="navbar-actions">
+            <button class="navbar-cart" onclick="toggleCart()" id="cartBtn">
+                🛒
+                <span class="badge badge-amber">BuildX Certified</span>
+            </button>
+            <button class="btn btn-ghost btn-sm" id="themeToggle" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌓</button>
+            <a href="app.html" class="btn btn-ghost btn-sm">🛒 <span>Marketplace</span></a>
+            <button class="btn btn-outline btn-sm" onclick="doLogout()"><span>Logout</span></button>
+        </div>
+    </nav>
+
+    <main class="main" id="mainContent">
+        <div class="loader">⏳ Loading your dashboard...</div>
+    </main>
+
+    <footer>
+        <p class="footer-copy">© 2026 <span>BuildX</span> · All rights reserved</p>
+    </footer>
+
+    <!-- ── Cart Overlay ── -->
+    <div class="cart-overlay" id="cartOverlay" onclick="handleCartOverlayClick(event)">
+        <div class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h3>🛒 My Cart</h3>
+                <button class="modal-close" onclick="toggleCart()">✕</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty">
+                    <div class="ci">🛒</div>
+                    <p>Your cart is empty.<br />Add materials to get started.</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display:none;">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout →</button>
+            </div>
+        </div>
+    </div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // Theme init
+        const savedTheme = localStorage.getItem('ch_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        window.addEventListener('DOMContentLoaded', () => {
+            const tb = document.getElementById('themeToggle');
+            if (tb) tb.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', target);
+            document.getElementById('themeToggle').textContent = target === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('ch_theme', target);
+        }
+
+        let currentUser = null;
+
+        /* ── Init ─────────────────────────────────────────────────── */
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('/api/me');
+                if (!res.ok) { window.location.href = 'login.html'; return; }
+                currentUser = await res.json();
+                await loadCartFromServer();
+                renderDashboard();
+            } catch {
+                window.location.href = 'login.html';
+            }
+        });
+
+        /* ── Logout ───────────────────────────────────────────────── */
+        async function doLogout() {
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = 'index.html';
+        }
+
+        /* ── Render dashboard ─────────────────────────────────────── */
+        async function renderDashboard() {
+            const u = currentUser;
+            const roleEmoji = { buyer: '🛒', seller: '🏪', engineer: '👨‍💼', worker: '👷' }[u.role] || '👤';
+            const roleBadgeColor = { buyer: 'badge-cyan', seller: 'badge-purple', engineer: 'badge-amber', worker: 'badge-green' }[u.role] || 'badge-amber';
+            const initial = u.name.charAt(0).toUpperCase();
+
+            // Fetch dynamic data in parallel
+            const [ordersRes, hiresRes, notesRes] = await Promise.all([
+                fetch('/api/orders').then(r => r.ok ? r.json() : []),
+                fetch('/api/hire-requests').then(r => r.ok ? r.json() : []),
+                u.role === 'seller' ? fetch('/api/notifications').then(r => r.ok ? r.json() : []) : Promise.resolve([])
+            ]);
+
+            const totalSpent = ordersRes.reduce((s, o) => s + o.total, 0);
+
+            const main = document.getElementById('mainContent');
+            main.innerHTML = `
+    <!-- Welcome banner -->
+    <div class="welcome-banner anim-fade-up">
+      <div class="welcome-left">
+        <h2>Hello, <span class="gradient-text">${u.name.split(' ')[0]}!</span> 👋</h2>
+        <p>Your <span class="badge ${roleBadgeColor}" style="font-size:.8rem;">${roleEmoji} ${capitalize(u.role)}</span> dashboard — welcome to BuildX.</p>
+        <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+          <a href="app.html" class="btn btn-primary btn-sm">🛒 Browse Marketplace</a>
+          ${u.role === 'buyer' ? '<a href="app.html#hire" class="btn btn-ghost btn-sm">👷 Hire Professionals</a>' : ''}
+        </div>
+      </div>
+      <div class="welcome-icon">${roleEmoji}</div>
+    </div>
+
+
+
+    <!-- Profile section -->
+    <div class="dash-section">
+      <div class="dash-section-hdr"><h3>👤 My Profile</h3></div>
+      <div class="profile-card">
+
+        ${(u.role === 'engineer' || u.role === 'worker') ? `
+        <!-- Photo upload avatar for professionals -->
+        <div style="position:relative; flex-shrink:0;" title="Click to change photo">
+          <div id="profileAvatarWrap" onclick="triggerPhotoUpload()" style="
+              width:80px; height:80px; border-radius:50%; overflow:hidden; cursor:pointer;
+              border:3px solid var(--amber); box-shadow:0 4px 20px rgba(245,158,11,0.35);
+              background:linear-gradient(135deg,var(--amber),var(--purple));
+              display:flex; align-items:center; justify-content:center;
+              font-size:2rem; font-weight:900; position:relative;
+          ">
+            ${u.image
+                        ? `<img id="profileAvatarImg" src="${u.image}" alt="Profile" style="width:100%;height:100%;object-fit:cover;">`
+                        : `<span id="profileAvatarInitial">${initial}</span>`}
+            <div style="
+                position:absolute; inset:0; background:rgba(0,0,0,0.45);
+                display:flex; align-items:center; justify-content:center;
+                opacity:0; transition:opacity 0.2s; border-radius:50%;
+                font-size:1.3rem;
+            " id="photoOverlay">📷</div>
+          </div>
+          <input type="file" id="photoFileInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
+          <div id="photoUploadStatus" style="font-size:0.7rem; color:var(--amber); text-align:center; margin-top:4px; min-height:14px;"></div>
+        </div>` : `
+        <!-- Letter avatar for buyers/sellers -->
+        <div class="profile-avatar">${initial}</div>`}
+
+        <div class="profile-info">
+          <h3>${u.name}</h3>
+          <p>${u.email}</p>
+          <div class="profile-meta">
+            ${u.phone ? `<span>📞 ${u.phone}</span>` : ''}
+            ${u.city ? `<span>📍 ${u.city}</span>` : ''}
+            ${u.specialisation ? `<span>🔧 ${u.specialisation}</span>` : ''}
+            ${u.skill ? `<span>⚒️ ${u.skill}</span>` : ''}
+            ${u.rate ? `<span>💵 ₹${u.rate}/day</span>` : ''}
+            ${u.workerRate ? `<span>💵 ₹${u.workerRate}/day</span>` : ''}
+            ${u.experience ? `<span>📅 ${u.experience} yrs exp</span>` : ''}
+            ${u.business ? `<span>🏪 ${u.business}</span>` : ''}
+            <span>🗓 Joined ${new Date(u.createdAt).toLocaleDateString('en-IN')}</span>
+          </div>
+          ${(u.role === 'engineer' || u.role === 'worker') ? `<p style="font-size:0.75rem;color:var(--gray-500);margin-top:8px;">📷 Click photo to update · Visible in Marketplace</p>` : ''}
+        </div>
+        <div class="badge ${roleBadgeColor}" style="font-size:0.85rem; padding:8px 16px;">${roleEmoji} ${capitalize(u.role)}</div>
+      </div>
+    </div>
+
+
+    <!-- Orders section -->
+    <div class="dash-section">
+      <div class="dash-section-hdr">
+        <h3>📦 My Orders</h3>
+        <a href="app.html" class="btn btn-ghost btn-sm">+ New Order</a>
+      </div>
+      ${renderOrders(ordersRes)}
+    </div>
+
+    <!-- Notification section for sellers -->
+    ${u.role === 'seller' ? `
+    <div class="dash-section">
+      <div class="dash-section-hdr">
+        <h3>📲 WhatsApp Notification Center (Internal)</h3>
+      </div>
+      ${renderNotifications(notesRes)}
+    </div>
+    ` : ''}
+
+    <div class="dash-section">
+      <div class="dash-section-hdr"><h3>🤝 My Hires</h3></div>
+      ${renderHires(hiresRes)}
+    </div>
+
+    <!-- Seller Management Section -->
+    ${u.role === 'seller' ? `
+    <div class="dash-section">
+      <div class="dash-section-hdr">
+        <h3>🏪 Seller Management</h3>
+        <button class="btn btn-primary btn-sm" onclick="toggleListingForm()">+ List New Product</button>
+      </div>
+      
+      <div class="seller-form-container" id="listingForm">
+        <h4 style="margin-bottom:20px;">List a Product</h4>
+        <div class="form-group">
+            <label>Select Material</label>
+            <select id="materialSelect" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Stock Quantity</label>
+            <input type="number" id="prodStock" class="form-control" placeholder="e.g. 100">
+        </div>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+            <button class="btn btn-primary btn-sm" onclick="saveProduct()">Save Product</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleListingForm()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="inventory-grid" id="sellerInventory">
+        <div class="loader">Loading inventory...</div>
+      </div>
+    </div>
+    ` : ''}
+    `;
+            if (u.role === 'seller') {
+                loadSellerInventory();
+                populateMaterials();
+            }
+        }
+
+
+        function renderNotifications(notes) {
+            if (!notes || notes.length === 0) {
+                return `
+        <div class="empty-state">
+          <div class="ei">📭</div>
+          <p>No automated notifications yet.</p>
+        </div>`;
+            }
+
+            return `
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        ${notes.map(n => `
+          <div class="item-card" style="border-left: 4px solid var(--success);">
+            <div class="item-icon">💬</div>
+            <div class="item-info">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:var(--success); font-weight:800;">AUTO-NOTIFIED 📲</span>
+                <span class="item-meta">${new Date(n.timestamp).toLocaleString()}</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); padding:12px; border-radius:8px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap; color:var(--gray-300);">${n.message}</div>
+              <div style="margin-top:10px; display:flex; gap:10px;">
+                <a href="https://wa.me/${n.phone}" target="_blank" class="btn btn-ghost btn-sm" style="font-size:0.7rem;">Reply on WhatsApp 📲</a>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>`;
+        }
+
+        function renderOrders(orders) {
+            if (!orders.length) return `<div class="empty-state"><div class="ei">📦</div><p>No orders yet.<br/><a href="app.html" style="color:var(--amber);">Browse the store →</a></p></div>`;
+            return `<div style="display:flex; flex-direction:column; gap:12px;">
+    ${orders.slice().reverse().map(o => `
+      <div class="item-card">
+        <div class="item-icon">
+          ${o.items[0] && o.items[0].image ? `<img src="${o.items[0].image}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;">` : '📦'}
+        </div>
+        <div class="item-info">
+          <div class="item-title">${o.items.length} item${o.items.length > 1 ? 's' : ''} ordered</div>
+          <div class="item-meta">
+            ${o.items.map(i => `${i.image ? `<img src="${i.image}" style="width:16px; height:16px; vertical-align:middle; border-radius:2px;">` : i.icon} ${i.name} ×${i.qty}`).join(' &nbsp;·&nbsp; ')}
+          </div>
+          <div class="item-meta" style="margin-top:4px;">🗓 ${new Date(o.placedAt).toLocaleString('en-IN')}</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="status status-confirmed" style="margin-top:6px;">✓ ${o.status}</div>
+        </div>
+      </div>`).join('')}
+  </div>`;
+        }
+
+        function renderHires(hires) {
+            if (!hires.length) return `<div class="empty-state"><div class="ei">🤝</div><p>No hire activity yet.<br/><a href="app.html" style="color:var(--amber);">Find professionals →</a></p></div>`;
+            return `<div style="display:flex; flex-direction:column; gap:12px;">
+    ${hires.slice().reverse().map(h => `
+      <div class="item-card">
+        <div class="item-icon">👷</div>
+        <div class="item-info">
+          <div class="item-title">${currentUser.role === 'buyer' ? h.professionalName : h.requesterName}</div>
+          <div class="item-meta">
+            ${h.professionalType === 'engineer' ? '👨‍💼 Engineer' : '👷 Worker'}
+            ${h.location ? `&nbsp;·&nbsp; 📍 ${h.location}` : ''}
+            ${h.startDate ? `&nbsp;·&nbsp; 🗓 ${h.startDate}` : ''}
+          </div>
+          ${h.message ? `<div class="item-meta" style="margin-top:4px;">💬 ${h.message}</div>` : ''}
+          <div class="item-meta" style="margin-top:4px;">Sent ${new Date(h.createdAt).toLocaleString('en-IN')}</div>
+        </div>
+        <div class="status status-pending" style="margin-top:2px;">⏳ ${h.status}</div>
+      </div>`).join('')}
+  </div>`;
+        }
+
+        /* ── Helpers ─────────────────────────────────────────────── */
+        function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+        /* ── Profile Photo Upload (engineers & workers) ──────────── */
+        function triggerPhotoUpload() {
+            const input = document.getElementById('photoFileInput');
+            if (input) input.click();
+        }
+
+        // Hover overlay reveal
+        document.addEventListener('mouseover', e => {
+            const wrap = document.getElementById('profileAvatarWrap');
+            const overlay = document.getElementById('photoOverlay');
+            if (wrap && overlay && (wrap === e.target || wrap.contains(e.target))) {
+                overlay.style.opacity = '1';
+            }
+        });
+        document.addEventListener('mouseout', e => {
+            const wrap = document.getElementById('profileAvatarWrap');
+            const overlay = document.getElementById('photoOverlay');
+            if (wrap && overlay && !wrap.contains(e.relatedTarget)) {
+                overlay.style.opacity = '0';
+            }
+        });
+
+        async function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const status = document.getElementById('photoUploadStatus');
+            if (status) status.textContent = '⏳ Uploading...';
+
+            // Validate size before reading
+            if (file.size > 2 * 1024 * 1024) {
+                if (status) status.textContent = '❌ Max 2 MB. Please choose a smaller photo.';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const base64 = e.target.result; // data:image/...;base64,...
+
+                try {
+                    const res = await fetch('/api/profile/photo', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ image: base64 })
+                    });
+                    const data = await res.json();
+
+                    if (res.ok) {
+                        // Update avatar in DOM
+                        const wrap = document.getElementById('profileAvatarWrap');
+                        if (wrap) {
+                            // Remove initial text, insert/update img
+                            const existing = document.getElementById('profileAvatarImg');
+                            const initial = document.getElementById('profileAvatarInitial');
+                            if (initial) initial.remove();
+                            if (existing) {
+                                existing.src = base64;
+                            } else {
+                                const img = document.createElement('img');
+                                img.id = 'profileAvatarImg';
+                                img.src = base64;
+                                img.alt = 'Profile';
+                                img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+                                wrap.insertBefore(img, wrap.firstChild);
+                            }
+                        }
+                        // Update currentUser
+                        if (data.user) currentUser = { ...currentUser, image: base64 };
+                        if (status) { status.textContent = '✅ Photo updated!'; setTimeout(() => { if (status) status.textContent = ''; }, 2500); }
+                        toast('✅ Profile photo updated! It will appear in the Marketplace.', 'success');
+                    } else {
+                        if (status) status.textContent = '❌ ' + (data.error || 'Upload failed');
+                        toast('❌ ' + (data.error || 'Upload failed'), 'error');
+                    }
+                } catch (err) {
+                    if (status) status.textContent = '❌ Network error';
+                    toast('❌ Network error during upload', 'error');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        /* ── Cart Logic ─────────────────────────────────────────────── */
+        let cart = [];
+
+        async function loadCartFromServer() {
+            try {
+                const res = await fetch('/api/cart');
+                if (res.ok) { cart = await res.json(); updateBadge(); }
+            } catch { }
+        }
+
+        function updateBadge() {
+            const total = cart.reduce((s, i) => s + i.qty, 0);
+            const badge = document.getElementById('cartBadge');
+            if (badge) {
+                badge.textContent = total;
+                badge.classList.toggle('hidden', total === 0);
+            }
+        }
+
+        function toggleCart() {
+            document.getElementById('cartOverlay').classList.toggle('open');
+            renderCart();
+        }
+
+        function handleCartOverlayClick(e) {
+            if (e.target === document.getElementById('cartOverlay')) toggleCart();
+        }
+
+        function renderCart() {
+            const body = document.getElementById('cartBody');
+            const foot = document.getElementById('cartFooter');
+            if (cart.length === 0) {
+                body.innerHTML = '<div class="cart-empty"><div class="ci">🛒</div><p>Your cart is empty.<br/>Add materials to get started.</p></div>';
+                if (foot) foot.style.display = 'none';
+                return;
+            }
+            const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+            body.innerHTML = cart.map((item, idx) => `
+                <div class="cart-item">
+                    <div class="cart-item-icon">
+                        ${item.image ? `<img src="${item.image}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;">` : item.icon}
+                    </div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-meta">Shop: ${item.sellerName || 'Direct'}</div>
+                        <div class="cart-item-meta">Qty: ${item.qty}</div>
+                    </div>
+                    <button class="cart-remove" onclick="removeCart('${item.id}', ${idx})">🗑</button>
+                </div>`).join('');
+            if (foot) foot.style.display = 'block';
+        }
+
+        async function removeCart(id, idx) {
+            try {
+                const res = await fetch('/api/cart/' + id, { method: 'DELETE' });
+                if (res.ok) {
+                    cart.splice(idx, 1);
+                    updateBadge();
+                    renderCart();
+                }
+            } catch {
+                toast('Error removing item', 'error');
+            }
+        }
+
+        async function checkout() {
+            try {
+                const res = await fetch('/api/checkout', { method: 'POST' });
+                if (res.ok) {
+                    toast('🎉 Order placed successfully!', 'success');
+                    cart = [];
+                    updateBadge();
+                    renderCart();
+                    setTimeout(() => toggleCart(), 1500);
+                    // Refresh stats
+                    renderDashboard();
+                } else {
+                    const d = await res.json();
+                    toast(d.error || 'Checkout failed', 'error');
+                }
+            } catch {
+                toast('Network error during checkout', 'error');
+            }
+        }
+
+        function toast(msg, type = '') {
+            const c = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = 'toast ' + type; t.innerHTML = `<span>${msg}</span>`;
+            c.appendChild(t); setTimeout(() => t.remove(), 3200);
+        }
+
+        /* ── Seller Dashboard Logic ──────────────────────────────────── */
+        function toggleListingForm() {
+            const form = document.getElementById('listingForm');
+            form.classList.toggle('open');
+        }
+
+        async function populateMaterials() {
+            try {
+                const res = await fetch('/api/materials');
+                const materials = await res.json();
+                const sel = document.getElementById('materialSelect');
+                sel.innerHTML = materials.map(m => `<option value="${m.id}">${m.icon} ${m.name}</option>`).join('');
+            } catch (err) { console.error("Error populating materials:", err); }
+        }
+
+        async function saveProduct() {
+            const materialId = document.getElementById('materialSelect').value;
+            const stock = document.getElementById('prodStock').value;
+
+            if (!stock) {
+                toast('Please enter price and stock', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/seller/products', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ materialId, price: 0, stock })
+                });
+
+                if (res.ok) {
+                    toast('✅ Product saved successfully!', 'success');
+                    toggleListingForm();
+                    loadSellerInventory();
+                } else {
+                    const d = await res.json();
+                    toast(d.error || 'Save failed', 'error');
+                }
+            } catch (err) {
+                toast('Network error', 'error');
+            }
+        }
+
+
+        async function loadSellerInventory() {
+            try {
+                const res = await fetch(`/api/sellers/${currentUser.id}`);
+                const data = await res.json();
+                const grid = document.getElementById('sellerInventory');
+
+                if (!data.inventory || data.inventory.length === 0) {
+                    grid.innerHTML = '<div class="empty-state"><p>No products listed yet.</p></div>';
+                    return;
+                }
+
+                grid.innerHTML = data.inventory.map(item => `
+                    <div class="item-card">
+                        <div class="item-icon">${item.icon || '📦'}</div>
+                        <div class="item-info">
+                            <div class="item-title">${item.name}</div>
+                            <div class="item-meta">Stock: ${item.stock} ${item.unit || ''}</div>
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn btn-ghost btn-sm" onclick="editProduct(${item.id}, ${item.price}, ${item.stock})" title="Edit Item">✏️</button>
+                            <button class="btn btn-ghost btn-sm" onclick="deleteProduct(${item.id})" title="Delete Item" style="color:var(--danger);">🗑️</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error("Error loading inventory:", err);
+            }
+        }
+
+        function editProduct(id, price, stock) {
+            document.getElementById('materialSelect').value = id;
+            document.getElementById('prodStock').value = stock;
+            const form = document.getElementById('listingForm');
+            if (!form.classList.contains('open')) form.classList.add('open');
+            window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+        }
+
+        async function deleteProduct(materialId) {
+            if (!confirm('Are you sure you want to delete this listing?')) return;
+
+            try {
+                const res = await fetch(`/api/seller/products/${materialId}`, {
+                    method: 'DELETE'
+                });
+
+                if (res.ok) {
+                    toast('🗑️ Product deleted successfully', 'success');
+                    loadSellerInventory();
+                } else {
+                    const d = await res.json();
+                    toast(d.error || 'Delete failed', 'error');
+                }
+            } catch (err) {
+                toast('Network error', 'error');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

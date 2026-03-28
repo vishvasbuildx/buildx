@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuildX – Create Account</title>
+    <meta name="description"
+        content="Join BuildX to start buying, selling or offering services. India's #1 construction marketplace." />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .register-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 60% at 20% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+        }
+
+        /* ── Step 1: Role Selection ─────────────────────────── */
+        .step-panel {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 820px;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .step-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .step-header p {
+            color: var(--gray-400);
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .role-card {
+            background: var(--card-bg);
+            border: 2px solid var(--navy-4);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(245, 158, 11, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .role-card:hover {
+            border-color: var(--amber);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(245, 158, 11, 0.15);
+        }
+
+        .role-card:hover::after {
+            opacity: 1;
+        }
+
+        .role-card.selected {
+            border-color: var(--amber);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .role-card.selected::after {
+            opacity: 1;
+        }
+
+        .role-check {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 24px;
+            height: 24px;
+            background: var(--amber);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--navy);
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .role-card.selected .role-check {
+            opacity: 1;
+        }
+
+        .role-emoji {
+            font-size: 2.8rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .role-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .role-desc {
+            font-size: 0.82rem;
+            color: var(--gray-400);
+        }
+
+        /* ── Step 2: Registration Form ──────────────────────── */
+        .form-panel {
+            width: 100%;
+            max-width: 520px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            backdrop-filter: blur(20px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .form-panel-header {
+            margin-bottom: 28px;
+        }
+
+        .form-panel-header .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: color 0.2s;
+        }
+
+        .form-panel-header .back-btn:hover {
+            color: var(--amber);
+        }
+
+        .form-panel-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+
+        .form-panel-header p {
+            font-size: 0.88rem;
+            color: var(--gray-400);
+        }
+
+        .role-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--amber-glow);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--amber);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        /* ── Step 3: Success ──────────────────────────────── */
+        .success-panel {
+            text-align: center;
+            width: 100%;
+            max-width: 440px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 56px 40px;
+            backdrop-filter: blur(20px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 2px solid var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 24px;
+        }
+
+        .success-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .success-panel p {
+            font-size: 0.95rem;
+            color: var(--gray-400);
+            margin-bottom: 32px;
+        }
+
+        /* ── Progress Dots ──────────────────────────────── */
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--navy-3);
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--amber);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        footer {
+            background: var(--navy-2);
+            border-top: 1px solid var(--navy-4);
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        .footer-copy {
+            color: var(--gray-600);
+            font-size: 0.82rem;
+            display: inline;
+        }
+
+        .footer-logo {
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: var(--amber);
+        }
+
+        @media (max-width: 600px) {
+            .role-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-panel {
+                padding: 32px 20px;
+            }
+
+            .step-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="logo-icon">⚒️</div>
+            Build<span>X</span>
+        </a>
+        <div class="navbar-actions">
+            <span class="text-muted" style="font-size:0.88rem;">Already have an account?</span>
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        </div>
+    </nav>
+
+    <div class="register-wrap">
+
+        <!-- ── STEP 1: Role Selection ── -->
+        <div id="step1" class="step-panel">
+            <div class="progress-dots">
+                <div class="dot active" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+            </div>
+            <div class="step-header">
+                <h1>Who are you on the <span class="text-amber">construction site?</span></h1>
+                <p>Choose your role to create the right account for you.</p>
+            </div>
+            <div class="role-grid">
+                <div class="role-card" id="role-buyer" onclick="selectRole('buyer', '🛒', 'Buyer')">
+                    <div class="role-check">✓</div>
+                    <span class="role-emoji">🛒</span>
+                    <div class="role-name">Buyer</div>
+                    <div class="role-desc">I want to purchase construction materials and hire engineers or workers for
+                        my projects.</div>
+                </div>
+                <div class="role-card" id="role-seller" onclick="selectRole('seller', '🏪', 'Seller')">
+                    <div class="role-check">✓</div>
+                    <span class="role-emoji">🏪</span>
+                    <div class="role-name">Seller / Supplier</div>
+                    <div class="role-desc">I run a construction materials business and want to list products to sell on
+                        this platform.</div>
+                </div>
+                <div class="role-card" id="role-engineer" onclick="selectRole('engineer', '👨‍💼', 'Engineer')">
+                    <div class="role-check">✓</div>
+                    <span class="role-emoji">👨‍💼</span>
+                    <div class="role-name">Engineer</div>
+                    <div class="role-desc">I am a civil, structural, electrical or other engineer and want to offer my
+                        professional services.</div>
+                </div>
+                <div class="role-card" id="role-worker" onclick="selectRole('worker', '👷', 'Worker')">
+                    <div class="role-check">✓</div>
+                    <span class="role-emoji">👷</span>
+                    <div class="role-name">Skilled Worker</div>
+                    <div class="role-desc">I am a mason, electrician, plumber, painter or other tradesperson available
+                        for hire.</div>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <button class="btn btn-primary" onclick="goToStep2()" id="continueBtn" disabled
+                    style="opacity:0.5; padding:14px 40px;">
+                    Continue →
+                </button>
+            </div>
+            <p class="text-center text-muted mt-4" style="font-size:0.82rem;">
+                Already have an account? <a href="login.html" style="color:var(--amber);">Login here</a>
+            </p>
+        </div>
+
+        <!-- ── STEP 2: Registration Form ── -->
+        <div id="step2" class="form-panel hidden">
+            <div class="form-panel-header">
+                <button class="back-btn" onclick="goToStep1()">← Back</button>
+                <div class="role-indicator" id="roleIndicator">🛒 Buyer</div>
+                <h2>Create your account</h2>
+                <p>Fill in your details below to get started on ConstructHub.</p>
+            </div>
+            <form id="regForm" onsubmit="submitForm(event)">
+                <!-- Common fields -->
+                <div class="form-group" style="text-align:center; margin-bottom:20px;">
+                    <div id="regAvatarWrap" onclick="document.getElementById('fImage').click()" style="width:80px; height:80px; border-radius:50%; background:var(--navy-3); border:2px dashed var(--gray-500); display:flex; align-items:center; justify-content:center; margin:0 auto; cursor:pointer; overflow:hidden; position:relative; transition:var(--transition);">
+                        <span id="regAvatarIcon" style="font-size:2rem; opacity:0.5;">📷</span>
+                        <img id="regAvatarImg" style="width:100%; height:100%; object-fit:cover; display:none;" />
+                    </div>
+                    <label style="font-size:0.8rem; color:var(--gray-400); margin-top:8px; display:block; cursor:pointer;" onclick="document.getElementById('fImage').click()">Upload Profile Picture (Optional)</label>
+                    <input type="file" id="fImage" accept="image/*" style="display:none" onchange="handleRegPhotoUpload(event)">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input class="form-input" id="fName" type="text" placeholder="Your full name" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number *</label>
+                        <input class="form-input" id="fPhone" type="tel" placeholder="+91 XXXXX XXXXX" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input class="form-input" id="fEmail" type="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">City *</label>
+                    <input class="form-input" id="fCity" type="text" placeholder="e.g. Chennai, Mumbai, Delhi"
+                        required />
+                </div>
+
+
+                <!-- Seller extra -->
+                <div id="sellerFields" class="hidden">
+                    <div class="form-group">
+                        <label class="form-label">Business / Company Name *</label>
+                        <input class="form-input" id="fBusiness" type="text" placeholder="Your business name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GST Number</label>
+                        <input class="form-input" id="fGST" type="text" placeholder="GST Registration Number" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Type of Materials You Sell *</label>
+                        <select class="form-select" id="fMaterialType">
+                            <option value="">Select category</option>
+                            <option>Cement & Concrete</option>
+                            <option>Steel & Iron</option>
+                            <option>Bricks & Blocks</option>
+                            <option>Sand & Aggregates</option>
+                            <option>Tiles & Flooring</option>
+                            <option>Paints & Finishes</option>
+                            <option>Electrical Materials</option>
+                            <option>Plumbing & Pipes</option>
+                            <option>Wood & Timber</option>
+                            <option>Safety Equipment</option>
+                            <option>Tools & Machinery</option>
+                            <option>Multiple Categories</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Engineer extra -->
+                <div id="engineerFields" class="hidden">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Specialisation *</label>
+                            <select class="form-select" id="fSpecial">
+                                <option value="">Select</option>
+                                <option>Civil Engineer</option>
+                                <option>Structural Engineer</option>
+                                <option>Electrical Engineer</option>
+                                <option>Mechanical Engineer</option>
+                                <option>Architect</option>
+                                <option>Interior Designer</option>
+                                <option>Project Manager</option>
+                                <option>Site Engineer</option>
+                                <option>Construction Consultant</option>
+                                <option>Landscape Architect</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Years of Experience *</label>
+                            <input class="form-input" id="fExp" type="number" placeholder="e.g. 8" min="0" max="50" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Daily Rate (₹) *</label>
+                            <input class="form-input" id="fRate" type="number" placeholder="e.g. 2500" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Certifications / Degree</label>
+                            <input class="form-input" id="fCert" type="text" placeholder="e.g. B.Tech Civil" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Worker extra -->
+                <div id="workerFields" class="hidden">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Skill / Trade *</label>
+                            <select class="form-select" id="fSkill">
+                                <option value="">Select</option>
+                                <option>Mason / Brick Layer</option>
+                                <option>Carpenter</option>
+                                <option>Electrician</option>
+                                <option>Plumber</option>
+                                <option>Painter</option>
+                                <option>Welder</option>
+                                <option>Tile Fixer</option>
+                                <option>Scaffolding Worker</option>
+                                <option>General Labour</option>
+                                <option>Driver / Machine Operator</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Years of Experience *</label>
+                            <input class="form-input" id="fWExp" type="number" placeholder="e.g. 5" min="0" max="50" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Daily Rate (₹) *</label>
+                        <input class="form-input" id="fWRate" type="number" placeholder="e.g. 900" />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Password *</label>
+                        <input class="form-input" id="fPass" type="password" placeholder="Min. 8 characters" required
+                            minlength="8" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password *</label>
+                        <input class="form-input" id="fPass2" type="password" placeholder="Re-enter password"
+                            required />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:4px;">
+                    <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer;">
+                        <input type="checkbox" required
+                            style="width:16px; height:16px; margin-top:3px; accent-color:var(--amber);" />
+                        <span style="font-size:0.82rem; color:var(--gray-400);">
+                            I agree to the <a href="#" style="color:var(--amber);">Terms of Service</a> and
+                            <a href="#" style="color:var(--amber);">Privacy Policy</a> of ConstructHub.
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px; padding:14px;">
+                    Create Account 🚀
+                </button>
+            </form>
+        </div>
+
+        <!-- ── STEP 3: Success ── -->
+        <div id="step3" class="success-panel hidden">
+            <div class="progress-dots">
+                <div class="dot" style="background:var(--success)"></div>
+                <div class="dot" style="background:var(--success)"></div>
+                <div class="dot" style="background:var(--success); width:24px; border-radius:4px;"></div>
+            </div>
+            <div class="success-icon">✅</div>
+            <h2>Account Created! 🎉</h2>
+            <p id="successMsg">Welcome to ConstructHub! Your account has been created successfully.</p>
+            <a href="dashboard.html" class="btn btn-primary btn-full" style="padding:14px;">
+                Go to My Dashboard →
+            </a>
+            <p class="text-muted mt-4" style="font-size:0.82rem;">You're being redirected in <span
+                    id="countdown">5</span>s...</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <span class="footer-logo">Construct<span>Hub</span></span>
+        <span class="footer-copy"> · © 2026 All rights reserved</span>
+    </footer>
+
+    <script>
+        // Theme init
+        const savedTheme = localStorage.getItem('ch_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        window.addEventListener('DOMContentLoaded', () => {
+            const tb = document.getElementById('themeToggle');
+            if (tb) tb.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', target);
+            document.getElementById('themeToggle').textContent = target === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('ch_theme', target);
+        }
+
+        let selectedRole = null;
+
+        /* Check URL param for pre-selected role */
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const role = params.get('role');
+            if (role && ['buyer', 'seller', 'engineer', 'worker'].includes(role)) {
+                const labels = { buyer: '🛒 Buyer', seller: '🏪 Seller', engineer: '👨‍💼 Engineer', worker: '👷 Worker' };
+                const names = { buyer: 'Buyer', seller: 'Seller / Supplier', engineer: 'Engineer', worker: 'Skilled Worker' };
+                selectRole(role, labels[role].split(' ')[0], names[role]);
+                setTimeout(goToStep2, 400);
+            }
+        });
+
+        function selectRole(role, emoji, name) {
+            selectedRole = role;
+            document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+            document.getElementById('role-' + role).classList.add('selected');
+            const btn = document.getElementById('continueBtn');
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            window._roleEmoji = emoji;
+            window._roleName = name;
+        }
+
+        function goToStep2() {
+            if (!selectedRole) return;
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+
+            /* Update role indicator */
+            document.getElementById('roleIndicator').textContent = window._roleEmoji + ' ' + window._roleName;
+
+            /* Show relevant extra fields */
+            ['sellerFields', 'engineerFields', 'workerFields'].forEach(id =>
+                document.getElementById(id).classList.add('hidden')
+            );
+            if (selectedRole === 'seller') document.getElementById('sellerFields').classList.remove('hidden');
+            if (selectedRole === 'engineer') document.getElementById('engineerFields').classList.remove('hidden');
+            if (selectedRole === 'worker') document.getElementById('workerFields').classList.remove('hidden');
+
+            /* Update progress */
+            document.getElementById('dot1').classList.remove('active');
+            document.getElementById('dot2').classList.add('active');
+        }
+
+        function goToStep1() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('dot2').classList.remove('active');
+            document.getElementById('dot1').classList.add('active');
+        }
+
+        let base64Image = '';
+        function handleRegPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            if (file.size > 2 * 1024 * 1024) { alert('Max 2 MB limit for photos.'); return; }
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                base64Image = e.target.result;
+                document.getElementById('regAvatarIcon').style.display = 'none';
+                const img = document.getElementById('regAvatarImg');
+                img.src = base64Image;
+                img.style.display = 'block';
+                document.getElementById('regAvatarWrap').style.borderColor = 'var(--amber)';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function submitForm(e) {
+            e.preventDefault();
+            const pass = document.getElementById('fPass').value;
+            const pass2 = document.getElementById('fPass2').value;
+            if (pass !== pass2) { alert('Passwords do not match. Please try again.'); return; }
+
+            const submitBtn = e.target.querySelector('[type="submit"]');
+            submitBtn.textContent = 'Creating account...'; submitBtn.disabled = true;
+
+            try {
+                const res = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        role: selectedRole,
+                        name: document.getElementById('fName').value,
+                        phone: document.getElementById('fPhone').value,
+                        email: document.getElementById('fEmail').value,
+                        city: document.getElementById('fCity').value,
+                        password: pass,
+                        business: document.getElementById('fBusiness')?.value || '',
+                        gst: document.getElementById('fBusiness')?.value ? document.getElementById('fGST')?.value : '',
+                        materialType: document.getElementById('fMaterialType')?.value || '',
+                        specialisation: document.getElementById('fSpecial')?.value || '',
+                        experience: document.getElementById('fExp')?.value || '',
+                        rate: document.getElementById('fRate')?.value || '',
+                        certifications: document.getElementById('fCert')?.value || '',
+                        skill: document.getElementById('fSkill')?.value || '',
+                        workerExp: document.getElementById('fWExp')?.value || '',
+                        workerRate: document.getElementById('fWRate')?.value || '',
+                        image: base64Image,
+                    })
+                });
+                const data = await res.json();
+                if (!res.ok) { alert(data.error || 'Registration failed.'); submitBtn.textContent = 'Create Account 🚀'; submitBtn.disabled = false; return; }
+
+                const name = data.user.name;
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step3').classList.remove('hidden');
+                document.getElementById('successMsg').textContent =
+                    `Welcome, ${name}! Your ${window._roleName} account is ready. Taking you to your dashboard now.`;
+
+                let count = 5;
+                const timer = setInterval(() => {
+                    count--;
+                    document.getElementById('countdown').textContent = count;
+                    if (count <= 0) { clearInterval(timer); window.location.href = 'dashboard.html'; }
+                }, 1000);
+            } catch (err) {
+                alert('Network error: ' + err.message);
+                submitBtn.textContent = 'Create Account 🚀'; submitBtn.disabled = false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1628 @@
+{
+  "users": [
+    {
+      "id": "d2740240-ff48-4ce3-9a1c-5eef00c2ae7b",
+      "name": "vishvas",
+      "email": "viisisisisi@gmail.com",
+      "phone": "7899+44555",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$wvzq49MiwI6WYeNMhriN6.7p6616ZHwFi//IFH2zKChPHK88W7aue",
+      "createdAt": "2026-02-22T16:12:56.022Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null
+    },
+    {
+      "id": "99d00901-ad37-4424-b633-ae96cda2e922",
+      "name": "vishvas",
+      "email": "viisisisi11si@gmail.com",
+      "phone": "7899+44555",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$XNt8L7nTJwWBz.gvmuZaieUK/egmnHmwYi5mz69MbnTgy3dxya8La",
+      "createdAt": "2026-02-22T16:16:07.864Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null
+    },
+    {
+      "id": "seller-1",
+      "name": "Mahalaxmi Hardwares",
+      "email": "mahalaxmi@example.com",
+      "phone": "9876543210",
+      "city": "chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$wvzq49MiwI6WYeNMhriN6.7p6616ZHwFi//IFH2zKChPHK88W7aue",
+      "createdAt": "2026-02-22T16:12:56.022Z",
+      "business": "Mahalaxmi Hardwares & Paints",
+      "gst": "33AAAAA0000A1Z5",
+      "shopDetails": {
+        "bio": "Leading supplier of structural steel and quality cement in Chennai for 20 years.",
+        "openingHours": "9:00 AM - 8:00 PM",
+        "status": "Verified",
+        "offers": [
+          "10% off on bulk cement orders",
+          "Free delivery above ₹50,000"
+        ]
+      }
+    },
+    {
+      "id": "seller-2",
+      "name": "BuildSmart Supplies",
+      "email": "buildsmart@example.com",
+      "phone": "9876543211",
+      "city": "chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$wvzq49MiwI6WYeNMhriN6.7p6616ZHwFi//IFH2zKChPHK88W7aue",
+      "createdAt": "2026-02-22T16:12:56.022Z",
+      "business": "BuildSmart Construction Supplies",
+      "gst": "33AAAAA0000A1Z6",
+      "shopDetails": {
+        "bio": "One-stop shop for all finishing materials and plumbing fixtures.",
+        "openingHours": "10:00 AM - 7:00 PM",
+        "status": "Gold Partner",
+        "offers": [
+          "Bundle offer on bathroom fittings"
+        ]
+      }
+    },
+    {
+      "id": "seller-3",
+      "name": "Apex Structural",
+      "email": "apex@example.com",
+      "phone": "9876543212",
+      "city": "chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$wvzq49MiwI6WYeNMhriN6.7p6616ZHwFi//IFH2zKChPHK88W7aue",
+      "createdAt": "2026-02-22T16:12:56.022Z",
+      "business": "Apex Structural Solutions",
+      "gst": "33AAAAA0000A1Z7",
+      "shopDetails": {
+        "bio": "Specialists in Fe 550 TMT bars and heavy structural sections.",
+        "openingHours": "8:30 AM - 6:30 PM",
+        "status": "Platinum Dealer",
+        "offers": [
+          "5% discount on orders over ₹1,00,000"
+        ]
+      }
+    },
+    {
+      "id": "416af571-8ccc-4f9b-9026-7d8f124a5e37",
+      "name": "vishvas",
+      "email": "viisisisi1111111si@gmail.com",
+      "phone": "7899+44555",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$BXIhR01htJ.8o19G1THZ1.chknVay566RPqIDnn3lm4c27sBk2FQu",
+      "createdAt": "2026-02-22T16:32:03.728Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null
+    },
+    {
+      "id": "f48fa65f-7cd5-4bb6-8003-7ff91582ee4f",
+      "name": "ariya",
+      "email": "viisisisi112341si@gmail.com",
+      "phone": "7899+44555",
+      "city": "chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$NhuuMt4i8Y3dZF9gPH3/f.REsuQU3oQTWEyQsM.L.TEFmItgPD.Wi",
+      "createdAt": "2026-02-22T16:33:42.594Z",
+      "business": "qwertyuio",
+      "gst": "qwertssbnsn",
+      "materialType": "Cement & Concrete",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null
+    },
+    {
+      "id": "f6979f83-5b86-49b1-93b5-b2b401b3c4e9",
+      "name": "vishvas",
+      "email": "vishvasvishvas123123@gmail.com",
+      "phone": "7899+44555",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$0jVaxK2bX9YBAP9eNLQkP.QvMVQAnOElfn8.1ld4JJ6R.wFFkh70q",
+      "createdAt": "2026-02-22T16:36:08.133Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null
+    },
+    {
+      "id": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "name": "vishvas",
+      "email": "vishvasvishvas2025@gmail.com",
+      "phone": "8870995892",
+      "city": "coimbature",
+      "role": "seller",
+      "passwordHash": "$2a$10$STMwUeGtQBiLv.nWNCVyiu1k/wsss8fPx/JL2pbV1jkDL0fYbM5bi",
+      "createdAt": "2026-02-22T17:57:27.638Z",
+      "business": "qwert",
+      "gst": "qwertyuiop",
+      "materialType": "Cement & Concrete",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "deliveryAddress": "kit",
+      "location": "coimbature"
+    },
+    {
+      "id": "c90f8f63-f4b9-432d-b5d2-c3e4c553d9fc",
+      "name": "dvrerg",
+      "email": "ytjftyjftyj@gmail.com",
+      "phone": "yhdtryhdrth",
+      "city": "delhi",
+      "role": "buyer",
+      "passwordHash": "$2a$10$gct8L2ZBKZDfP9w2llYUludIfH5DBZMKszNp99pRYIuiLVTqscTtq",
+      "createdAt": "2026-02-25T11:56:54.727Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "85fd81dd-4f3c-44a3-a5b5-a68a0f9193b2",
+      "name": "vishvas",
+      "email": "vishvasvishvas1231231@gmail.com",
+      "phone": "789944555",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$LUuwOlmVEvuQi39sAVp9A.uTlSB1xdxjaXjuNZx7MlkyrLgcaWGRm",
+      "createdAt": "2026-02-26T07:17:22.426Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "199b13f4-be51-46f2-b550-e511d5ad0fdd",
+      "name": "santhosh ",
+      "email": "santhosh123@gmail.com",
+      "phone": "7894561232",
+      "city": "coimbature",
+      "role": "engineer",
+      "passwordHash": "$2a$10$6WtXTSRreP9I6qfBzIdF5.kp0M1KGUpDNpaZjzaOleKar2/iY7cUy",
+      "createdAt": "2026-02-26T07:33:36.263Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": "Civil Engineer",
+      "experience": "10",
+      "rate": "123456789",
+      "certifications": "b.e computerscience",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "fa2eed24-9d37-460b-9634-cbcd2f4401f9",
+      "name": "santhosh ",
+      "email": "santhosh1234@gmail.com",
+      "phone": "7894561232",
+      "city": "coimbature",
+      "role": "engineer",
+      "passwordHash": "$2a$10$6YDk0BLk7/xFKnSmalfq3.akV2GKAKFvB91cNOPTPw.cZyoKOrVci",
+      "createdAt": "2026-02-26T10:05:23.144Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": "10",
+      "rate": null,
+      "certifications": "b.e computerscience",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "8bee7b5d-3282-4c99-9bf5-616041a9c858",
+      "name": "mhd irfan",
+      "email": "vishvasvishvas202567@gmail.com",
+      "phone": "7895462132131",
+      "city": "coimbature",
+      "role": "engineer",
+      "passwordHash": "$2a$10$.Kuee3XdIsSHVUaMUxoCC.2HQOHDUogvPUsqMKFgN.kyGBBEh.2MC",
+      "createdAt": "2026-02-26T10:46:21.990Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": "Architect",
+      "experience": "5",
+      "rate": "99999999999",
+      "certifications": "b.e computerscience",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "82348bde-c2da-4806-9e32-36bb908ff9dd",
+      "name": "vishvas",
+      "email": "vishvasvishvas1231123@gmail.com",
+      "phone": "7894561232",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$t6houVaJS1WE4goc2kVDluvonLO1nR5wAM3.mp.cZU7vCQMOmo0ii",
+      "createdAt": "2026-02-26T13:08:33.400Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "25f04d80-1e9c-4d69-a60f-29112b24d29b",
+      "name": "vishvassssss",
+      "email": "25csdb57@karpagamtech.ac.in",
+      "phone": "789456123",
+      "city": "coimbature",
+      "role": "engineer",
+      "passwordHash": "$2a$10$e03f5ZLawqCy8KROO.O48ucNvD4p.jYQqujPn2Xcr7oAmemDT1tCO",
+      "createdAt": "2026-02-26T13:24:26.629Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": "Civil Engineer",
+      "experience": "5",
+      "rate": "1000000000",
+      "certifications": "ARCHITECT",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "74cb59da-b49b-40a9-9a3d-1523c882b965",
+      "name": "imseller",
+      "email": "thiripurasundai2018@gmail.com",
+      "phone": "789456123",
+      "city": "chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$RIFPx6gfFcOPzZ3njg0LmOsw66CN55AchR1GtqA24zxuYhWPOIC5.",
+      "createdAt": "2026-02-26T13:34:02.367Z",
+      "business": "vettikili cements",
+      "gst": "123456789qwertyuiop",
+      "materialType": "Cement & Concrete",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "5c605bbc-9496-44fd-8c03-3c960569ba1a",
+      "name": "imbuyer",
+      "email": "freefirepayaluga877@gmail.com",
+      "phone": "789456123",
+      "city": "coimbature",
+      "role": "buyer",
+      "passwordHash": "$2a$10$jE1uimTOtNfj3m5pOwKI1OKG7AtCSeu.6sJqF2H0uUvkk7dDvr.F6",
+      "createdAt": "2026-02-26T13:36:57.080Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+      "name": "Verify Seller",
+      "email": "verify_seller@example.com",
+      "phone": "9876543210",
+      "city": "Chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$IYev8WGr13zluGjN3vT6Kuo4xSS2EEcbBJuocOlUWpfvEzMFIGszO",
+      "createdAt": "2026-02-26T13:52:58.791Z",
+      "business": "Verify Business",
+      "gst": null,
+      "materialType": "Cement & Concrete",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "name": "vishvas",
+      "email": "vishvasvishvas1234@gmail.com",
+      "phone": "8870995892",
+      "city": "coimbature",
+      "role": "seller",
+      "passwordHash": "$2a$10$5yva1nTomk71X4gqHnxV6eItFM4B7PZv62/tXx92eZLcwR5CItAza",
+      "createdAt": "2026-02-26T14:44:50.234Z",
+      "business": "qwert",
+      "gst": "qwertyuiop",
+      "materialType": "Tiles & Flooring",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "51086293-c65d-4b55-83bc-30fca2c270a2",
+      "name": "sai sudtharshan",
+      "email": "saisaisutharshan@gmail.com",
+      "phone": "9876543210",
+      "city": "erode",
+      "role": "worker",
+      "passwordHash": "$2a$10$X0C4xJRejNreRcqg/3mHRuAhrb/h8A.VwJFphcl57RMzSE.WzWoTa",
+      "createdAt": "2026-02-27T04:46:41.144Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": "Painter",
+      "workerExp": "2",
+      "workerRate": "1000",
+      "image": null
+    },
+    {
+      "id": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+      "name": "Test Seller",
+      "email": "test_delete@example.com",
+      "phone": "1234567890",
+      "city": "Chennai",
+      "role": "seller",
+      "passwordHash": "$2a$10$0QdB84hVs9nCm5sQj.SVrOKLQYilt2CBvYTZ8JOh02RE.qtzGywYK",
+      "createdAt": "2026-02-27T04:56:39.837Z",
+      "business": "Test Business",
+      "gst": null,
+      "materialType": "Cement & Concrete",
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "35413c47-4bb7-4ffe-8f9c-56b812d774be",
+      "name": "praba",
+      "email": "praba@gmail.com",
+      "phone": "78954651",
+      "city": "madurai",
+      "role": "engineer",
+      "passwordHash": "$2a$10$N7Vjs3m8MSc7.kBA2WC1v.8uB7yncB6vQBUhwVE0H1Rll86KhqDP.",
+      "createdAt": "2026-02-27T10:47:04.257Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": "Mechanical Engineer",
+      "experience": "7",
+      "rate": "4652",
+      "certifications": "ARCHITECT",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "ce734226-6461-4ef0-83c1-2a6ee8b28f88",
+      "name": "poovarasan",
+      "email": "prab456a@gmail.com",
+      "phone": "78954651",
+      "city": "madurai",
+      "role": "engineer",
+      "passwordHash": "$2a$10$vjcRj2hCUp41oDwl7CTjeOisb5Yfk5inDQ6RC7nAVykM9xig4hIce",
+      "createdAt": "2026-03-04T05:53:53.456Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": "7",
+      "rate": "4652",
+      "certifications": "vishvasvishvas25@gmail.com",
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "dfe4cd9f-ba3c-4b56-b62e-e0a27fbeb20f",
+      "name": "raji",
+      "email": "vishvasvishvas12311111123@gmail.com",
+      "phone": "7894561232",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$GCWeoWq1rHNEOXFDNts4lektgHMhQtG1QkY9jLsK83WGk1lDQ6HDq",
+      "createdAt": "2026-03-04T05:54:44.179Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null
+    },
+    {
+      "id": "1eb9924c-40f9-4aac-80c8-0a055d88dccc",
+      "name": "raji",
+      "email": "vishvasvishvas1231111111123@gmail.com",
+      "phone": "7894561232",
+      "city": "chennai",
+      "role": "buyer",
+      "passwordHash": "$2a$10$jI.bDnqMcLRKTSQOSe6pTOsE/gVe3txPXGjjsOWIFUeNUeRVn.BfG",
+      "createdAt": "2026-03-04T05:56:07.327Z",
+      "business": null,
+      "gst": null,
+      "materialType": null,
+      "specialisation": null,
+      "experience": null,
+      "rate": null,
+      "certifications": null,
+      "skill": null,
+      "workerExp": null,
+      "workerRate": null,
+      "image": null,
+      "deliveryAddress": "azydzhfdzyhzd",
+      "location": "123456789"
+    }
+  ],
+  "materials": [
+    {
+      "id": 1,
+      "name": "Cement",
+      "sub": "OPC & PPC Grade",
+      "icon": "🧱",
+      "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=600",
+      "category": "Structural",
+      "unit": "per bag",
+      "description": "High-strength Ordinary Portland Cement (OPC) and Portland Pozzolana Cement (PPC) grade. Ideal for all general construction, including concrete, mortar, and plaster. Features superior fine grinding for a smooth finish and excellent durability against weather.",
+      "specs": [
+        {
+          "label": "Grade",
+          "value": "43 / 53 Grade"
+        },
+        {
+          "label": "Weight",
+          "value": "50kg per bag"
+        },
+        {
+          "label": "Curing Time",
+          "value": "7-14 days"
+        },
+        {
+          "label": "Shelf Life",
+          "value": "3 Months"
+        }
+      ],
+      "rating": 4.8,
+      "reviewCount": 1240,
+      "isPrime": true,
+      "reviews": [
+        {
+          "user": "Ramesh K.",
+          "rating": 5,
+          "comment": "Excellent strength, sets very well.",
+          "date": "2026-01-15"
+        },
+        {
+          "user": "Anita S.",
+          "rating": 4,
+          "comment": "Good quality, but delivery was a bit slow.",
+          "date": "2026-01-20"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "TMT Steel",
+      "sub": "Fe 500 & Fe 550",
+      "icon": "⚙️",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=600",
+      "category": "Structural",
+      "unit": "per tonne",
+      "description": "Thermo-Mechanically Treated (TMT) steel bars for superior structural integrity. Fe 500 and Fe 550 grades available for high-rise buildings and earthquake-prone zones. Features rib patterns for better bonding with concrete.",
+      "specs": [
+        {
+          "label": "Diameter",
+          "value": "8mm, 10mm, 12mm, 16mm, 20mm"
+        },
+        {
+          "label": "Grade",
+          "value": "Fe 500 / 550"
+        },
+        {
+          "label": "Length",
+          "value": "12 meters"
+        },
+        {
+          "label": "Certification",
+          "value": "ISI Certified"
+        }
+      ],
+      "rating": 4.9,
+      "reviewCount": 850,
+      "isPrime": true,
+      "reviews": [
+        {
+          "user": "Suresh P.",
+          "rating": 5,
+          "comment": "Best TMT bars I have used. Very flexible and strong.",
+          "date": "2026-02-01"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Bricks",
+      "sub": "Red & Fly Ash",
+      "icon": "🏗️",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600",
+      "category": "Structural",
+      "unit": "per piece",
+      "description": "Premium red clay bricks and fly ash bricks. High compressive strength and low water absorption. Perfect for load-bearing walls and aesthetic brickwork.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Wire Cut / Table Molded"
+        },
+        {
+          "label": "Size",
+          "value": "9 x 4 x 3 inch"
+        },
+        {
+          "label": "Weight",
+          "value": "3.5 kg approx."
+        }
+      ],
+      "rating": 4.7,
+      "reviewCount": 3200,
+      "isPrime": false,
+      "reviews": [
+        {
+          "user": "Karthik M.",
+          "rating": 5,
+          "comment": "Clean edges, very few breakages in the batch.",
+          "date": "2026-02-10"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "River Sand",
+      "sub": "M-Sand & River Sand",
+      "icon": "🟤",
+      "image": "https://images.unsplash.com/photo-1504151932400-72d4384f04b3?auto=format&fit=crop&q=80&w=600",
+      "category": "Aggregate",
+      "unit": "per cubic ft",
+      "description": "High-quality M-Sand (Manufactured Sand) and natural River Sand. Sieve-filtered to remove impurities and clay. Ideal for masonry, plastering, and concrete work.",
+      "specs": [
+        {
+          "label": "Material",
+          "value": "Granite / River Bed"
+        },
+        {
+          "label": "Moisture",
+          "value": "< 5%"
+        },
+        {
+          "label": "Granularity",
+          "value": "Fine / Coarse"
+        }
+      ],
+      "rating": 4.5,
+      "reviewCount": 560,
+      "isPrime": false,
+      "reviews": []
+    },
+    {
+      "id": 5,
+      "name": "Gravel",
+      "sub": "20mm & 40mm",
+      "icon": "🪨",
+      "image": "https://images.unsplash.com/photo-1541888941293-25873fbf5a0b?auto=format&fit=crop&q=80&w=600",
+      "category": "Aggregate",
+      "unit": "per cubic ft",
+      "description": "Crushed blue metal gravel for high-strength concrete. Available in 20mm for slabs and 40mm for foundation work. Sharply graded for maximum density.",
+      "specs": [
+        {
+          "label": "Size",
+          "value": "20mm / 40mm"
+        },
+        {
+          "label": "Type",
+          "value": "Crushed Granite"
+        }
+      ],
+      "rating": 4.6,
+      "reviewCount": 420,
+      "isPrime": true,
+      "reviews": []
+    },
+    {
+      "id": 6,
+      "name": "Floor Tiles",
+      "sub": "Vitrified & Ceramic",
+      "icon": "🟦",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600",
+      "category": "Finishing",
+      "unit": "per sq.ft",
+      "description": "Elegant vitrified and ceramic floor tiles with anti-skid properties. Wide range of patterns including marble, wooden, and stone finishes. Easy to clean and highly durable.",
+      "specs": [
+        {
+          "label": "Size",
+          "value": "2x2 ft / 3x3 ft"
+        },
+        {
+          "label": "Finish",
+          "value": "Glossy / Matte / Satin"
+        },
+        {
+          "label": "Thickness",
+          "value": "9mm - 12mm"
+        }
+      ],
+      "rating": 4.8,
+      "reviewCount": 150,
+      "isPrime": true,
+      "reviews": [
+        {
+          "user": "Vikram R.",
+          "rating": 5,
+          "comment": "Beautiful finish, looks like real marble!",
+          "date": "2026-01-30"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Interior Paint",
+      "sub": "Emulsion & Distemper",
+      "icon": "🎨",
+      "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
+      "category": "Finishing",
+      "unit": "per litre",
+      "description": "Premium interior emulsion paint with high washability and stain resistance. Low VOC and antifungal properties for a healthy home environment. Over 2000+ shades available.",
+      "specs": [
+        {
+          "label": "Finish",
+          "value": "Sheen / Matte / Eggshell"
+        },
+        {
+          "label": "Coverage",
+          "value": "120-140 sq.ft / litre"
+        },
+        {
+          "label": "Drying Time",
+          "value": "30 mins (Touch dry)"
+        }
+      ],
+      "rating": 4.9,
+      "reviewCount": 2100,
+      "isPrime": true,
+      "reviews": [
+        {
+          "user": "Priya L.",
+          "rating": 5,
+          "comment": "Great coverage, only needed two coats for a dark wall.",
+          "date": "2026-02-15"
+        }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "materialId": 1,
+      "sellerId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+      "price": 450,
+      "stock": 75
+    },
+    {
+      "materialId": 6,
+      "sellerId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+      "price": 100000,
+      "stock": 100000000
+    },
+    {
+      "materialId": 7,
+      "sellerId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+      "price": 1000,
+      "stock": 1
+    },
+    {
+      "materialId": 1,
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "price": 380,
+      "stock": 100
+    },
+    {
+      "materialId": 2,
+      "sellerId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "price": 10111000,
+      "stock": 1.111111111111111e+27
+    },
+    {
+      "materialId": 1,
+      "sellerId": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+      "price": 500,
+      "stock": 10
+    },
+    {
+      "materialId": 2,
+      "sellerId": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+      "price": 2000,
+      "stock": 5
+    },
+    {
+      "materialId": 3,
+      "sellerId": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+      "price": 700,
+      "stock": 20
+    }
+  ],
+  "cartItems": [],
+  "orders": [
+    {
+      "id": "c09bece2-a59e-4214-9821-af2d9ed4fd45",
+      "userId": "99d00901-ad37-4424-b633-ae96cda2e922",
+      "items": [
+        {
+          "id": "b9d77cc2-a219-4186-a6dc-c9de84089ae5",
+          "materialId": 1,
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-22T16:16:25.331Z"
+    },
+    {
+      "id": "905e3530-09d3-4250-b599-d8ac5766bb15",
+      "userId": "99d00901-ad37-4424-b633-ae96cda2e922",
+      "items": [
+        {
+          "id": "90f8fa3d-c8c6-400e-9b4e-e3d4f81d789e",
+          "materialId": 1,
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 13
+        },
+        {
+          "id": "1168a3a6-3b6a-487f-a03e-da1d21af0177",
+          "materialId": 2,
+          "name": "TMT Steel",
+          "icon": "⚙️",
+          "price": 62000,
+          "unit": "per tonne",
+          "qty": 14
+        }
+      ],
+      "total": 872940,
+      "status": "Confirmed",
+      "placedAt": "2026-02-22T16:16:46.985Z"
+    },
+    {
+      "id": "3d5ef2df-0587-44b9-9969-a8b001306259",
+      "userId": "85fd81dd-4f3c-44a3-a5b5-a68a0f9193b2",
+      "items": [
+        {
+          "id": "3db77c38-d1a1-4e1d-808d-85c5eb921734",
+          "materialId": 2,
+          "sellerId": "seller-3",
+          "sellerName": "Apex Structural",
+          "name": "TMT Steel",
+          "icon": "⚙️",
+          "price": 60500,
+          "unit": "per tonne",
+          "qty": 1
+        },
+        {
+          "id": "8903e5ae-6b1b-46f9-90ea-432858c96686",
+          "materialId": 2,
+          "sellerId": "seller-1",
+          "sellerName": "Mahalaxmi Hardwares",
+          "name": "TMT Steel",
+          "icon": "⚙️",
+          "price": 61500,
+          "unit": "per tonne",
+          "qty": 1
+        }
+      ],
+      "total": 122000,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T07:18:15.545Z"
+    },
+    {
+      "id": "7ce74f0b-01e4-46e1-a11d-67b4db9e6e08",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "items": [
+        {
+          "id": "40590538-9047-40e0-8835-7c8c862bc954",
+          "materialId": 1,
+          "sellerId": "seller-1",
+          "sellerName": "Mahalaxmi Hardwares",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 375,
+          "unit": "per bag",
+          "qty": 2
+        }
+      ],
+      "total": 750,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T13:31:01.068Z"
+    },
+    {
+      "id": "6bc2e848-1690-4229-9aeb-2aa9d9953322",
+      "userId": "5c605bbc-9496-44fd-8c03-3c960569ba1a",
+      "items": [
+        {
+          "id": "8ec4a004-72d6-42b7-a93d-32eb5534ad47",
+          "materialId": 1,
+          "sellerId": "seller-1",
+          "sellerName": "Mahalaxmi Hardwares",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 375,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 375,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T13:37:34.389Z"
+    },
+    {
+      "id": "a8cd2353-8398-43e5-ab27-bbd78d926bf5",
+      "userId": "5c605bbc-9496-44fd-8c03-3c960569ba1a",
+      "items": [
+        {
+          "id": "a770d1d6-6299-45fd-bac0-92ab3008408f",
+          "materialId": 1,
+          "sellerId": "seller-1",
+          "sellerName": "Mahalaxmi Hardwares",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 375,
+          "unit": "per bag",
+          "qty": 8
+        }
+      ],
+      "total": 3000,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T13:38:55.456Z"
+    },
+    {
+      "id": "53d220ca-d287-4b82-842b-d547e5ceb3e4",
+      "userId": "5c605bbc-9496-44fd-8c03-3c960569ba1a",
+      "items": [
+        {
+          "id": "ac0e3716-0225-4bf8-91fe-3fa847e84ff5",
+          "materialId": 1,
+          "sellerId": "seller-2",
+          "sellerName": "BuildSmart Supplies",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 385,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 385,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T13:39:23.538Z"
+    },
+    {
+      "id": "80edfa57-e6a3-4f98-b417-1a052d0f60a4",
+      "userId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+      "items": [
+        {
+          "id": "a84a8d3c-7875-473d-aaa6-024347fd1cbd",
+          "materialId": 1,
+          "sellerId": "seller-2",
+          "sellerName": "BuildSmart Supplies",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 385,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 385,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T13:59:17.663Z"
+    },
+    {
+      "id": "513e6e4f-8868-49dd-b7dc-e5fb262e08cd",
+      "userId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "items": [
+        {
+          "id": "db51f504-afd1-4c2d-89ac-e40c89546f0c",
+          "materialId": 1,
+          "sellerId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+          "sellerName": "Verify Seller",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 450,
+          "unit": "per bag",
+          "qty": 11
+        }
+      ],
+      "total": 4950,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T15:49:16.817Z"
+    },
+    {
+      "id": "7b691f4b-17ba-452f-a6cf-ea9468ac4eb8",
+      "userId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "items": [
+        {
+          "id": "5838bb67-c87d-42c4-84b8-31662ad9241f",
+          "materialId": 1,
+          "sellerId": "ab539697-4420-46a3-bc6d-9e3d31cdb54b",
+          "sellerName": "Verify Seller",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 450,
+          "unit": "per bag",
+          "qty": 12
+        }
+      ],
+      "total": 5400,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T15:52:27.253Z"
+    },
+    {
+      "id": "597f12cb-c54f-4861-b594-f34612f68ceb",
+      "userId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "items": [
+        {
+          "id": "28c9f416-6572-4943-b240-1b40c4c0bf26",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:13:57.267Z"
+    },
+    {
+      "id": "ee8836f1-00f4-4759-901c-4f4eae3882e9",
+      "userId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "items": [
+        {
+          "id": "8e160c46-199f-4e5c-a347-cad4bf96d940",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 23
+        }
+      ],
+      "total": 8740,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:19:32.723Z"
+    },
+    {
+      "id": "687fda98-ded9-404f-8e6f-6e1b808857e9",
+      "userId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "items": [
+        {
+          "id": "3523952e-e4ca-4ec2-819d-16cb85ec65c9",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 20
+        }
+      ],
+      "total": 7600,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:24:47.219Z"
+    },
+    {
+      "id": "7468e91a-19fd-48ca-985e-2fc75d8e2188",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "qwertyuiqwsedfghjkzxcvbnm",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "3a3aac59-d9a8-4610-a814-eaa071149d9c",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:33:01.058Z"
+    },
+    {
+      "id": "e3f9af47-18bb-4494-8c1e-a58be5bbf2b5",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "awertyuifityjdtyyhfttf fzf dfdffdfdfdddfd ",
+      "location": "chyffkhk",
+      "items": [
+        {
+          "id": "0c906e25-54ca-4f49-9965-821ba5f77a2c",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:42:43.069Z"
+    },
+    {
+      "id": "6bcd5059-38b8-46d2-b615-0815dc2b1cca",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "awertyuifityjdtyyhfttf fzf dfdffdfdfdddfd ",
+      "location": "chyffkhk",
+      "items": [
+        {
+          "id": "2fcc416d-4e10-4d05-9fc5-bb2be40042d1",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 8
+        }
+      ],
+      "total": 3040,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:45:07.198Z"
+    },
+    {
+      "id": "14425ce9-2f69-44c5-b2be-ad062a7e693a",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "wertyuiopadjndfkufljhcmbvxmykrtfxmhbdmsfdtxm s\n",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "a1f86c79-e18d-45cf-af76-505692216fbf",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:54:13.482Z"
+    },
+    {
+      "id": "cbb6aef2-8169-4514-ad58-9a4094109155",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "qkytfrkwduvtleyutaywltbclwuienflcvengkfgn;cwkr",
+      "location": ",jghasdc,hjsd",
+      "items": [
+        {
+          "id": "eb1c358e-bf3b-4026-8e2a-77bc5b1e93b3",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:55:04.716Z"
+    },
+    {
+      "id": "e1d96884-a244-4e17-9bb2-8b4890dea000",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "yrsmgsmbaszmbhaymhmyhym y",
+      "location": "hdgxcmxgfm,fx",
+      "items": [
+        {
+          "id": "f25c3e6f-3573-439c-804a-4437ce2750ae",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:57:12.012Z"
+    },
+    {
+      "id": "8ea93c72-62f3-4fc4-a2ae-6fe24282b441",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "yrsmgsmbaszmbhaymhmyhym y",
+      "location": "hdgxcmxgfm,fx",
+      "items": [
+        {
+          "id": "74ce3256-6d09-474f-b918-c8f0f35eec5e",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 2
+        }
+      ],
+      "total": 760,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T16:57:36.797Z"
+    },
+    {
+      "id": "44038c7e-fc1e-41f7-9158-326ca5a88a4d",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "ywexrtscdyufvibgnhoclaeswuldgcfhawloeugf",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "74165661-cb38-43ea-9cfb-d25980374616",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T17:04:24.941Z"
+    },
+    {
+      "id": "63de4aff-e47a-4321-8dcb-689eb943e837",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "EAZWxsrcdtvfybgunhimjohgt7edtyikgvuhi;lbu,\n",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "739d403e-8d78-4c9c-8755-591c93ee06e5",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 2
+        }
+      ],
+      "total": 760,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T17:13:36.873Z"
+    },
+    {
+      "id": "310ed67a-584c-4120-b761-6bd2f2da5209",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "waetsrdyfygiuhoijkp['dsjn['sudvjs';dv's,",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "beef1ba5-7f00-4590-90ba-e39a633f7f79",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 2
+        }
+      ],
+      "total": 760,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T17:19:15.600Z"
+    },
+    {
+      "id": "011bda6c-baf0-4457-8148-f9f7a0bd6fee",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "wefiugpwi;eughf'o[wehf'oweihf'owef[woihf[owehfpoeh[bowh[wohe owhe f.,",
+      "location": "coimbatutrewertyuiopasdfghjklzxcvbnm,,dwehfp",
+      "items": [
+        {
+          "id": "738e9bae-b018-428d-b0dc-c75fedd259b7",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-26T17:28:58.115Z"
+    },
+    {
+      "id": "664154ae-d4d4-4bb5-950b-8328336386b1",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "karpagam institute of technology",
+      "location": "coimbatore",
+      "items": [
+        {
+          "id": "f2ac9d12-abf2-4cd9-a106-47d1ae3ec205",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 3
+        }
+      ],
+      "total": 1140,
+      "status": "Confirmed",
+      "placedAt": "2026-02-27T06:23:38.654Z"
+    },
+    {
+      "id": "029988fb-7ecc-4a97-b3cd-411b2862af9f",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "qwertyuioasdfghjkl;zxcvbnm,\n",
+      "location": "chennai",
+      "items": [
+        {
+          "id": "b2f0a8da-cc75-4152-9f3a-97bccabc3ab8",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        }
+      ],
+      "total": 380,
+      "status": "Confirmed",
+      "placedAt": "2026-02-27T06:35:19.089Z"
+    },
+    {
+      "id": "c72404b2-f896-4f71-8fdd-f8d025572dd2",
+      "userId": "c8989fb9-26a6-4ea0-91f3-9ac45273f6e5",
+      "deliveryAddress": "kit",
+      "location": "coimbature",
+      "items": [
+        {
+          "id": "74905c1f-6645-4aa8-ac6d-b153cfbdc483",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 2
+        }
+      ],
+      "total": 760,
+      "status": "Confirmed",
+      "placedAt": "2026-02-27T07:44:40.890Z"
+    },
+    {
+      "id": "7422deca-a1e6-43e7-84f6-b1534c31a531",
+      "userId": "1eb9924c-40f9-4aac-80c8-0a055d88dccc",
+      "deliveryAddress": "azydzhfdzyhzd",
+      "location": "123456789",
+      "items": [
+        {
+          "id": "ebefefb8-e361-4d04-af00-71d92159fe3c",
+          "materialId": 1,
+          "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+          "sellerName": "vishvas",
+          "name": "Cement",
+          "icon": "🧱",
+          "price": 380,
+          "unit": "per bag",
+          "qty": 1
+        },
+        {
+          "id": "8270ad75-643d-4f78-bf3b-104c8cb20c35",
+          "materialId": 2,
+          "sellerId": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+          "sellerName": "Test Seller",
+          "name": "TMT Steel",
+          "icon": "⚙️",
+          "price": 2000,
+          "unit": "per tonne",
+          "qty": 1
+        }
+      ],
+      "total": 2380,
+      "status": "Confirmed",
+      "placedAt": "2026-03-04T05:57:14.807Z"
+    }
+  ],
+  "hireRequests": [
+    {
+      "id": "e6895604-43b6-4fb4-9624-3e31e3588b3b",
+      "requesterId": "51086293-c65d-4b55-83bc-30fca2c270a2",
+      "requesterName": "sai sudtharshan",
+      "requesterPhone": "9876543210",
+      "professionalId": 51086293,
+      "professionalName": "sai sudtharshan",
+      "professionalType": "worker",
+      "startDate": "2008-12-03",
+      "location": "chennai",
+      "message": "",
+      "status": "Pending",
+      "createdAt": "2026-02-27T04:49:42.028Z"
+    }
+  ],
+  "contacts": [],
+  "notifications": [
+    {
+      "id": "8356d8d8-67f4-486b-881c-76941535339f",
+      "orderId": "e3f9af47-18bb-4494-8c1e-a58be5bbf2b5",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* chyffkhk\n*Delivery Address:* awertyuifityjdtyyhfttf fzf dfdffdfdfdddfd \n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:42:43.096Z"
+    },
+    {
+      "id": "928275d5-f841-42dd-a810-423094b84250",
+      "orderId": "6bcd5059-38b8-46d2-b615-0815dc2b1cca",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* chyffkhk\n*Delivery Address:* awertyuifityjdtyyhfttf fzf dfdffdfdfdddfd \n\n*Items:*\n- 8 x Cement (₹380)\n\n*Total for your shop:* ₹3,040\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:45:07.200Z"
+    },
+    {
+      "id": "150d0351-a04e-46d0-af22-94bb78d7ea15",
+      "orderId": "14425ce9-2f69-44c5-b2be-ad062a7e693a",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbature\n*Delivery Address:* wertyuiopadjndfkufljhcmbvxmykrtfxmhbdmsfdtxm s\n\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:54:13.484Z"
+    },
+    {
+      "id": "da9e0725-eac1-4b89-8b41-173f06544556",
+      "orderId": "cbb6aef2-8169-4514-ad58-9a4094109155",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* ,jghasdc,hjsd\n*Delivery Address:* qkytfrkwduvtleyutaywltbclwuienflcvengkfgn;cwkr\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:55:04.718Z"
+    },
+    {
+      "id": "99e0c1e0-d3ae-48fd-9fc6-5482afeac9b4",
+      "orderId": "e1d96884-a244-4e17-9bb2-8b4890dea000",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* hdgxcmxgfm,fx\n*Delivery Address:* yrsmgsmbaszmbhaymhmyhym y\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:57:12.015Z"
+    },
+    {
+      "id": "75cc9ff8-db69-497f-a53d-f80edc9055f6",
+      "orderId": "8ea93c72-62f3-4fc4-a2ae-6fe24282b441",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* hdgxcmxgfm,fx\n*Delivery Address:* yrsmgsmbaszmbhaymhmyhym y\n\n*Items:*\n- 2 x Cement (₹380)\n\n*Total for your shop:* ₹760\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T16:57:36.799Z"
+    },
+    {
+      "id": "b0858c08-ed8b-435d-9b8e-77d17bcc1953",
+      "orderId": "44038c7e-fc1e-41f7-9158-326ca5a88a4d",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbature\n*Delivery Address:* ywexrtscdyufvibgnhoclaeswuldgcfhawloeugf\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T17:04:24.944Z"
+    },
+    {
+      "id": "68e979b0-a7c6-40f8-8dfa-17c93f3b7e7d",
+      "orderId": "63de4aff-e47a-4321-8dcb-689eb943e837",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbature\n*Delivery Address:* EAZWxsrcdtvfybgunhimjohgt7edtyikgvuhi;lbu,\n\n\n*Items:*\n- 2 x Cement (₹380)\n\n*Total for your shop:* ₹760\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T17:13:36.904Z"
+    },
+    {
+      "id": "36993755-5469-497c-9077-377290ee6cf3",
+      "orderId": "310ed67a-584c-4120-b761-6bd2f2da5209",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbature\n*Delivery Address:* waetsrdyfygiuhoijkp['dsjn['sudvjs';dv's,\n\n*Items:*\n- 2 x Cement (₹380)\n\n*Total for your shop:* ₹760\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T17:19:15.630Z"
+    },
+    {
+      "id": "6352cd17-e90c-4347-a41e-e4912facb97b",
+      "orderId": "011bda6c-baf0-4457-8148-f9f7a0bd6fee",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbatutrewertyuiopasdfghjklzxcvbnm,,dwehfp\n*Delivery Address:* wefiugpwi;eughf'o[wehf'oweihf'owef[woihf[owehfpoeh[bowh[wohe owhe f.,\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-26T17:28:58.149Z"
+    },
+    {
+      "id": "490feda2-2ad8-4df6-addb-928ec8c37c26",
+      "orderId": "664154ae-d4d4-4bb5-950b-8328336386b1",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbatore\n*Delivery Address:* karpagam institute of technology\n\n*Items:*\n- 3 x Cement (₹380)\n\n*Total for your shop:* ₹1,140\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-27T06:23:38.682Z"
+    },
+    {
+      "id": "f1029f17-1292-423d-957a-8486819130f3",
+      "orderId": "029988fb-7ecc-4a97-b3cd-411b2862af9f",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* chennai\n*Delivery Address:* qwertyuioasdfghjkl;zxcvbnm,\n\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total for your shop:* ₹380\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-27T06:35:19.119Z"
+    },
+    {
+      "id": "59158ad5-0873-4a62-b0be-5bc50f682d5a",
+      "orderId": "c72404b2-f896-4f71-8fdd-f8d025572dd2",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*New Order from BuildX* 🏗️\n\n*Buyer:* vishvas\n*Phone:* 8870995892\n*Location:* coimbature\n*Delivery Address:* kit\n\n*Items:*\n- 2 x Cement (₹380)\n\n*Total for your shop:* ₹760\n\nPlease confirm the order!",
+      "status": "Sent Automatically",
+      "timestamp": "2026-02-27T07:44:40.895Z"
+    },
+    {
+      "id": "4407ae2d-ec46-46d8-be90-0bf13520d96c",
+      "orderId": "7422deca-a1e6-43e7-84f6-b1534c31a531",
+      "sellerId": "d5f869c7-62f0-46d1-bc63-c833101bd75d",
+      "sellerName": "vishvas",
+      "phone": "918870995892",
+      "message": "*Order from BuildX Company* 🏗️\n\nHello qwert,\nWe have received a new order and need the following items made ready for dispatch:\n\n*Items:*\n- 1 x Cement (₹380)\n\n*Total Amount:* ₹380\n\n*Buyer Details:*\nName: raji\nPhone: 7894561232\nDelivery: azydzhfdzyhzd\n\nPlease make the order ready as soon as possible.",
+      "status": "Sent Automatically",
+      "timestamp": "2026-03-04T05:57:14.833Z"
+    },
+    {
+      "id": "0e48ddb3-e9de-416d-a4f1-f8e7a66293ae",
+      "orderId": "7422deca-a1e6-43e7-84f6-b1534c31a531",
+      "sellerId": "20e10597-8c2b-4309-be50-d3bf6da47c78",
+      "sellerName": "Test Seller",
+      "phone": "911234567890",
+      "message": "*Order from BuildX Company* 🏗️\n\nHello Test Business,\nWe have received a new order and need the following items made ready for dispatch:\n\n*Items:*\n- 1 x TMT Steel (₹2000)\n\n*Total Amount:* ₹2,000\n\n*Buyer Details:*\nName: raji\nPhone: 7894561232\nDelivery: azydzhfdzyhzd\n\nPlease make the order ready as soon as possible.",
+      "status": "Sent Automatically",
+      "timestamp": "2026-03-04T05:57:14.843Z"
+    }
+  ]
+}

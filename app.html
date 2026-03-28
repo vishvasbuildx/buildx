@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace – BuildX</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .app-layout {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .app-main {
+            flex: 1;
+            padding: 28px 40px;
+        }
+
+        /* toolbar */
+        .toolbar {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .toolbar .search-box {
+            flex: 1;
+            min-width: 200px;
+            max-width: 340px;
+        }
+
+        .toolbar select {
+            padding: 11px 14px;
+            background: var(--navy-2);
+            border: 1.5px solid var(--navy-4);
+            border-radius: var(--radius-sm);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            cursor: pointer;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .toolbar select:focus {
+            border-color: var(--amber);
+        }
+
+        .toolbar select option {
+            background: var(--navy-2);
+        }
+
+        /* cards */
+        .product-img {
+            height: 160px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: var(--navy-3);
+            border: 1px solid var(--navy-4);
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .glass-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .card-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card-body .tag {
+            font-size: 0.78rem;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .amazon-card {
+            padding: 0 !important;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px !important;
+            background: var(--navy);
+            transition: var(--transition);
+        }
+
+        .amazon-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            transform: none !important;
+        }
+
+        .amazon-card .product-img {
+            height: 200px;
+            margin-bottom: 0;
+            border-radius: 0;
+            background: #fff;
+            padding: 15px;
+            border-bottom: 1px solid var(--navy-4);
+        }
+
+        .amazon-card .card-body {
+            padding: 12px 16px 20px;
+        }
+
+        .category-tag {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .amazon-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 6px 0;
+        }
+
+        .amazon-rating .stars {
+            color: #ffa41c;
+            font-size: 0.9rem;
+        }
+
+        .amazon-rating .count {
+            color: #007185;
+            font-size: 0.85rem;
+        }
+
+        .amazon-rating .count:hover {
+            color: #c45500;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .price-box {
+            margin-top: 4px;
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+
+        .price-box .currency {
+            font-size: 0.8rem;
+            font-weight: 500;
+            position: relative;
+            top: -4px;
+        }
+
+        .price-box .amount {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .price-box .unit {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-left: 2px;
+        }
+
+        .delivery-eta {
+            font-size: 0.82rem;
+            margin-top: 6px;
+            color: var(--gray-500);
+        }
+
+        .btn-amazon {
+            background: #ffd814 !important;
+            color: #0f1111 !important;
+            border: 1px solid #fcd200 !important;
+            box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5) !important;
+            border-radius: 20px !important;
+            font-weight: 500 !important;
+            font-size: 0.85rem !important;
+            padding: 8px 14px !important;
+            background-image: none !important;
+        }
+
+        .btn-amazon:hover {
+            background: #f7ca00 !important;
+            border-color: #f2c200 !important;
+        }
+
+        .btn-buy {
+            background: #ffa41c !important;
+            border-color: #ff8f00 !important;
+        }
+
+        .btn-buy:hover {
+            background: #fa8914 !important;
+            border-color: #f08211 !important;
+        }
+
+        /* PDP Modal Styles */
+        .pdp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 0.8fr;
+            gap: 30px;
+        }
+
+        .pdp-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--navy-4);
+        }
+
+        .buy-box {
+            border: 1px solid var(--navy-4);
+            border-radius: 8px;
+            padding: 20px;
+            background: var(--navy-2);
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .pdp-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .buy-box {
+                position: static;
+                border-color: var(--amber);
+                background: var(--amber-glow-soft);
+            }
+        }
+
+        .buy-box .price-box .amount {
+            font-size: 1.8rem;
+        }
+
+        .stock-status {
+            font-size: 1.1rem;
+            color: #b12704;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        .stock-status.in-stock {
+            color: #007600;
+        }
+
+        /* Tabs and Tables */
+        .pdp-tabs {
+            margin-top: 30px;
+            border-top: 1px solid var(--navy-4);
+            padding-top: 20px;
+        }
+
+        .pdp-tab-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .pdp-tab-btn {
+            background: none;
+            border: none;
+            font-weight: 700;
+            color: var(--gray-400);
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .pdp-tab-btn.active {
+            color: #c45500;
+            border-bottom-color: #c45500;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .specs-table td {
+            padding: 8px 12px;
+            border: 1px solid var(--navy-4);
+            font-size: 0.88rem;
+        }
+
+        .specs-table td:first-child {
+            background: var(--navy-3);
+            font-weight: 700;
+            width: 35%;
+        }
+
+        .review-item {
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--navy-4);
+        }
+
+        [data-theme="dark"] .amazon-card {
+            background: var(--navy-2);
+        }
+
+        [data-theme="dark"] .amazon-card .product-img {
+            background: #fff;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--amber);
+        }
+
+        .old-price {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            text-decoration: line-through;
+            margin-left: 6px;
+        }
+
+        /* person cards */
+        .person-img {
+            height: 110px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--navy-3), #ffffff);
+            border: 1px solid var(--navy-4);
+        }
+
+        .avail-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--success);
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-bottom: 8px;
+        }
+
+        .avail-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+
+        /* cart sidebar */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 401;
+            width: 380px;
+            max-width: 95vw;
+            background: #ffffff;
+            border-left: 1px solid var(--navy-4);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(.4, 0, .2, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-overlay.open .cart-drawer {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cart-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--gray-400);
+        }
+
+        .cart-empty .ci {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cart-item-icon {
+            font-size: 1.8rem;
+            width: 48px;
+            text-align: center;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cart-item-meta {
+            font-size: 0.78rem;
+            color: var(--gray-400);
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .cart-remove {
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .cart-remove:hover {
+            color: var(--danger);
+        }
+
+        .cart-footer {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .cart-total span:last-child {
+            color: var(--amber);
+            font-size: 1.2rem;
+        }
+
+        /* profile modal */
+        .prof-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .prof-item {
+            background: var(--navy-2);
+            border: 1px solid var(--navy-4);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .prof-item-label {
+            font-size: 0.72rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .prof-item-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        footer {
+            background: var(--navy-2);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 20px 40px;
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.82rem;
+        }
+
+        footer span {
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        @media(max-width:768px) {
+            .app-main {
+                padding: 20px;
+            }
+
+            .cart-drawer {
+                width: 100vw;
+            }
+        }
+
+        .seller-item-hover:hover {
+            border-color: var(--amber) !important;
+            background: var(--navy-2) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .seller-item-hover {
+            transition: all 0.3s ease;
+        }
+
+        .order-summary-box {
+            background: var(--navy-3);
+            border: 1px solid var(--navy-4);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 4px;
+        }
+
+        /* ── Progress Bar for Auto-Redirect ── */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: var(--navy-4);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--amber);
+            border-radius: 10px;
+            transition: width 10s linear;
+        }
+
+        .scanning-active .progress-container {
+            display: block;
+        }
+
+        .scanning-active .progress-bar {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="app-layout">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="logo-icon">⚒️</div>
+            Build<span>X</span>
+        </a>
+        <div class="navbar-actions">
+            <button class="navbar-cart" onclick="toggleCart()" id="cartBtn">
+                🛒
+                <span class="cart-badge hidden" id="cartBadge">0</span>
+            </button>
+            <button class="btn btn-ghost btn-sm" id="themeToggle" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌓</button>
+            <button class="btn btn-ghost btn-sm" onclick="location.reload(true)" title="Force Refresh">🔄</button>
+            <a href="dashboard.html" class="btn btn-outline btn-sm" id="accountBtn"><span>My Account</span></a>
+        </div>
+    </nav>
+
+    <main class="app-main">
+
+        <!-- Welcome banner -->
+        <div style="margin-bottom:28px;">
+            <h1 style="font-size:1.7rem; margin-bottom:6px;">Welcome to the <span class="text-amber">Marketplace</span>
+                👋</h1>
+            <p class="text-muted" style="font-size:0.9rem;">Browse materials, hire engineers and skilled workers across
+                India.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" style="margin-bottom:24px; max-width:600px;">
+            <button class="tab-btn active" id="tab-materials" onclick="showTab('materials',this)">🧱 Materials
+                Store</button>
+            <button class="tab-btn" id="tab-engineers" onclick="showTab('engineers',this)">👨‍💼 Engineers</button>
+            <button class="tab-btn" id="tab-workers" onclick="showTab('workers',this)">👷 Workers</button>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search..." oninput="applyFilters()" />
+            </div>
+            <input class="form-input" style="width:190px;" id="locationFilter" placeholder="📍 Filter by city..."
+                oninput="applyFilters()" />
+        </div>
+
+        <!-- ── MATERIALS TAB ── -->
+        <div id="tab-materials-content" class="auto-grid"></div>
+
+        <!-- ── ENGINEERS TAB ── -->
+        <div id="tab-engineers-content" class="auto-grid hidden"></div>
+
+        <!-- ── WORKERS TAB ── -->
+        <div id="tab-workers-content" class="auto-grid hidden"></div>
+
+    </main>
+
+    <footer>© 2026 <span>BuildX</span> · All rights reserved</footer>
+
+    <!-- ── Cart Overlay ── -->
+    <div class="cart-overlay" id="cartOverlay" onclick="handleCartOverlayClick(event)">
+        <div class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h3>🛒 My Cart</h3>
+                <button class="modal-close" onclick="toggleCart()">✕</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty">
+                    <div class="ci">🛒</div>
+                    <p>Your cart is empty.<br />Add materials to get started.</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display:none;">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Profile Modal (Professionals) ── -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="profName">Profile</h3>
+                <button class="modal-close" onclick="closeModal('profileModal')">✕</button>
+            </div>
+            <div style="text-align:center; margin-bottom:16px;">
+                <div id="profImgContainer"
+                    style="width:120px; height:120px; margin:0 auto; border-radius:14px; overflow:hidden; background:var(--navy-3); display:flex; align-items:center; justify-content:center; border:1.5px solid var(--navy-4);">
+                    <div style="font-size:4rem;" id="profEmoji">👤</div>
+                </div>
+                <div class="badge badge-amber" id="profRole" style="margin-top:12px;"></div>
+            </div>
+            <div class="prof-meta" id="profMeta"></div>
+            <div style="display:flex; gap:10px;">
+                <button class="btn btn-primary btn-full" id="profHireBtn" onclick="hirePerson()">Hire Now</button>
+                <button class="btn btn-outline" onclick="closeModal('profileModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Product Detail Page (PDP) Modal ── -->
+    <div class="modal-overlay" id="pdpModal">
+        <div class="modal" style="max-width:1100px; width:95vw;">
+            <div class="modal-header"
+                style="border-bottom: 1px solid var(--navy-4); padding-bottom: 15px; margin-bottom: 20px;">
+                <h3 id="pdpBreadcrumb" style="font-size: 0.85rem; color: #007185; font-weight: 400;">Materials ›
+                    Structural</h3>
+                <button class="modal-close" onclick="closeModal('pdpModal')">✕</button>
+            </div>
+
+            <div class="pdp-grid">
+                <!-- Gallery -->
+                <div class="pdp-gallery">
+                    <img id="pdpMainImg" src="" alt="Product">
+                    <div style="margin-top:15px; font-size:0.8rem; color:var(--gray-500); text-align:center;">Roll over
+                        image to zoom in</div>
+                </div>
+
+                <!-- Info -->
+                <div class="pdp-info">
+                    <h2 id="pdpTitle"
+                        style="font-size: 1.5rem; border-bottom: 1px solid var(--navy-4); padding-bottom: 15px; margin-bottom: 15px;">
+                    </h2>
+
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 0.9rem; font-weight: 700;">About this item:</div>
+                        <p id="pdpDescription"
+                            style="font-size: 0.9rem; line-height: 1.5; color: var(--gray-600); margin-top: 6px;"></p>
+                    </div>
+
+                    <div class="pdp-tabs">
+                        <div class="pdp-tab-header">
+                            <button class="pdp-tab-btn active" onclick="switchPDPTab('specs', this)">Technical
+                                Specs</button>
+                            <button class="pdp-tab-btn" onclick="switchPDPTab('reviews', this)">Reviews</button>
+                        </div>
+                        <div id="pdpTabContent">
+                            <!-- Dynamically filled -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buy Box -->
+                <div class="buy-box">
+                    <div id="buyBoxPrime"></div>
+                    <div class="delivery-eta" style="margin-top: 10px;">FREE delivery <b>Tomorrow</b>. Order within
+                        <span style="color:#007600;">10 hrs 2 mins</span>
+                    </div>
+                    <div class="stock-status in-stock" id="buyBoxStock">In Stock</div>
+
+                    <div style="display:flex; flex-direction:column; gap:10px; margin-top: 20px;">
+                        <button class="btn btn-amazon btn-full" id="pdpAddToCart">Add to Cart</button>
+                        <button class="btn btn-amazon btn-buy btn-full" id="pdpBuyNow">Buy Now</button>
+                    </div>
+
+                    <div style="margin-top: 20px; font-size: 0.82rem;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                            <span style="color:var(--gray-500);">Ships from</span>
+                            <span id="buyBoxShipsFrom">BuildX</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:var(--gray-500);">Sold by</span>
+                            <span id="buyBoxSoldBy" style="color:#007185;"></span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; border-top: 1px solid var(--navy-4); padding-top: 15px;">
+                        <div style="font-weight:700; font-size:0.85rem; margin-bottom:10px;">Quick Sellers List</div>
+                        <div id="otherSellersList" style="display:flex; flex-direction:column; gap:10px;">
+                            <!-- Dynamically filled -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Sellers Modal ── -->
+    <div class="modal-overlay" id="sellersModal">
+        <div class="modal" style="max-width:700px; width: 95vw;">
+            <div class="modal-header">
+                <h3>Select a Seller</h3>
+                <button class="modal-close" onclick="closeModal('sellersModal')">✕</button>
+            </div>
+            <div id="materialInfo"
+                style="display:flex; align-items:center; gap:16px; margin-bottom:24px; padding:16px; background:var(--navy-2); border-radius:var(--radius-sm);">
+                <div id="mIcon" style="font-size:2.5rem;"></div>
+                <div>
+                    <h4 id="mName" style="font-size:1.1rem; font-weight:700;"></h4>
+                    <span id="mSub" style="font-size:0.85rem; color:var(--gray-400);"></span>
+                </div>
+            </div>
+            <div id="sellersList"
+                style="display:flex; flex-direction:column; gap:12px; max-height:400px; overflow-y:auto; padding-right:4px;">
+                <div class="loader">🔍 Looking for sellers nearby...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Shop Profile Modal ── -->
+    <div class="modal-overlay" id="shopModal">
+        <div class="modal" style="max-width:700px; width:95vw;">
+            <div class="modal-header">
+                <h3 id="shopBusiness">Shop Profile</h3>
+                <button class="modal-close" onclick="closeModal('shopModal')">✕</button>
+            </div>
+            <div class="profile-card" style="margin-bottom:24px; background:var(--navy-2);">
+                <div class="profile-avatar" id="shopInitial"
+                    style="background:linear-gradient(135deg, var(--amber), var(--purple));"></div>
+                <div class="profile-info">
+                    <h3 id="shopName">Shop Name</h3>
+                    <p id="shopBio" style="margin-top:4px; line-height:1.5;"></p>
+                    <div class="profile-meta" style="margin-top:12px;">
+                        <span id="shopHours"></span>
+                        <span id="shopLocation"></span>
+                        <span id="shopStatus" class="badge badge-amber" style="padding:4px 10px;"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="shopOffers" style="margin-bottom:20px;"></div>
+            <h4 style="margin-bottom:12px; font-weight:800; font-size:1rem;">🛒 Store Items</h4>
+            <div id="shopInventory" class="auto-grid" style="grid-template-columns: repeat(2, 1fr); gap:12px;"></div>
+            <div style="margin-top:24px; text-align:right;">
+                <button class="btn btn-outline" onclick="closeModal('shopModal')">Back to Sellers</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Hire Confirm Modal ── -->
+    <div class="modal-overlay" id="hireModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Confirm Hire Request</h3>
+                <button class="modal-close" onclick="closeModal('hireModal')">✕</button>
+            </div>
+            <p style="margin-bottom:20px; font-size:0.9rem;">Fill in your details to send a hire request.</p>
+            <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input class="form-input" id="hName" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input class="form-input" id="hPhone" placeholder="+91 XXXXX XXXXX" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Project Location</label>
+                <input class="form-input" id="hLocation" placeholder="City / Site address" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Start Date</label>
+                <input class="form-input" type="date" id="hDate" />
+            </div>
+            <div style="display:flex; gap:10px; margin-top:8px;">
+                <button class="btn btn-primary btn-full" onclick="submitHire()">Send Request 🚀</button>
+                <button class="btn btn-outline" onclick="closeModal('hireModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>🚚 Order Summary & Delivery</h3>
+                <button class="modal-close" onclick="closeModal('checkoutModal')">✕</button>
+            </div>
+
+            <p style="margin-bottom:15px; font-size:0.9rem; color: var(--gray-400);">Review your items and enter
+                delivery details to place your order.</p>
+
+            <div class="order-summary-box" id="checkoutSummary">
+                <!-- Filled dynamically via checkout() function -->
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Delivery Location (City/Area)</label>
+                <input class="form-input" id="checkoutLocation" placeholder="e.g. Adyar, Chennai" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Full Delivery Address</label>
+                <textarea class="form-input" id="checkoutAddress" rows="3"
+                    placeholder="Door No, Street Name, Landmark..."></textarea>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:20px;">
+                <button class="btn btn-amazon btn-full" onclick="performCheckout()">Place Order & Pay 🚀</button>
+                <button class="btn btn-outline" onclick="closeModal('checkoutModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="orderSuccessModal">
+        <div class="modal" style="text-align:center; max-width: 440px;">
+            <!-- Stage 1: Payment instructions -->
+            <div id="paymentStage">
+                <div style="font-size:4rem; margin-bottom:15px;">🎉</div>
+                <p style="color:var(--success); font-weight:700; margin-bottom:12px;">✅ Sellers Notified</p>
+                <hr style="border:none; border-top:1px solid var(--navy-4); margin: 20px 0;">
+                <div
+                    style="background: var(--navy-2); border: 1.5px solid var(--amber); border-radius: 12px; padding: 24px; box-shadow: 0 10px 30px rgba(255,164,28,0.1);">
+                    <p
+                        style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 16px; font-weight: 800;">
+                        Step 1: Complete Payment</p>
+                    <div
+                        style="background: white; padding: 12px; border-radius: 10px; display: inline-block; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="upi-qr.png" alt="UPI QR Code" style="width: 200px; height: 200px; display: block;"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#000; padding:40px; font-size:0.8rem;\'>[QR Code Image]<br>(upi-qr.png missing)</div>'">
+                    </div>
+                    <div
+                        style="font-family: 'JetBrains Mono', 'Courier New', monospace; background: var(--navy-3); padding: 10px; border-radius: 6px; font-size: 0.95rem; color: var(--white); border: 1px solid var(--navy-4); margin-bottom: 8px;">
+                        sudharshang03@okhdfcbank
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--gray-400);">Scan with GPay, PhonePe, or PayTM</p>
+                </div>
+
+                <div id="scanningStage" style="margin-top:25px;">
+                    <p style="font-size: 0.85rem; color: var(--gray-400); font-weight: 600;">🔄 Waiting for Payment
+                        Signal...</p>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--gray-500);">Scanning transaction logs. Do not close this
+                        window.</p>
+                </div>
+            </div>
+
+            <!-- Stage 2: Final Confirmation -->
+            <div id="confirmedStage" class="hidden">
+                <div style="font-size:5rem; margin-bottom:20px; color: var(--success);">✔️</div>
+                <h2 style="margin-bottom:12px;">Order Confirmed!</h2>
+                <p style="color: var(--gray-400); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
+                    Thank you! Your payment notification has been sent. <br>
+                    The seller will verify the transaction and start delivery within <strong>24 hours</strong>.
+                </p>
+                <div
+                    style="background: var(--navy-2); border-radius: 8px; padding: 15px; margin-bottom: 30px; border-left: 4px solid var(--success);">
+                    <p style="font-size: 0.85rem; text-align: left;">Tracking ID: <span
+                            id="finalTrackId" style="font-family: monospace; color: var(--amber);">#BX-000000000</span></p>
+                </div>
+                <button class="btn btn-primary btn-full" onclick="closeModal('orderSuccessModal')">Close & Return to
+                    Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Toast Container ── -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        /* ── Data ─────────────────────────────────────────────────────── */
+        let MATERIALS = [];
+        let ENGINEERS = [];
+        let WORKERS = [];
+
+        /* ── State ─────────────────────────────────────────────────────── */
+        let cart = [];
+        let isLoggedIn = false;
+        let currentTab = 'materials';
+        let currentPerson = null;
+
+        /* ── Render ─────────────────────────────────────────────────────── */
+        function renderMaterials(list) {
+            document.getElementById('tab-materials-content').innerHTML = list.map(m => {
+                return `
+                <div class="glass-card amazon-card" onclick="openSellers(${m.id})" data-name="${m.name}" data-category="${m.category}" style="cursor:pointer;">
+                    <div class="product-img" style="background: white;">
+                        ${m.image ? `<img src="${m.image}" alt="${m.name}">` : m.icon}
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <div class="category-tag">${m.category}</div>
+                        <h3 style="margin-bottom: 4px;">${m.name}</h3>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function starsHtml(n) { return '⭐'.repeat(n) + '☆'.repeat(5 - n); }
+
+        function renderEngineers(list) {
+            const container = document.getElementById('tab-engineers-content');
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--navy-2); border: 1px dashed var(--navy-4); border-radius: var(--radius);">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">👨‍💼</div>
+                        <h3 style="margin-bottom: 8px;">No Engineers Registered Yet</h3>
+                        <p style="color: var(--gray-400); font-size: 0.9rem;">We're currently verifying new experts. Check back soon!</p>
+                    </div>`;
+                return;
+            }
+            container.innerHTML = list.map(e => `
+    <div class="glass-card" style="padding:20px;" onclick="openProfile('${e.id}','engineer')"
+      data-name="${e.name}" data-city="${e.city}" data-stars="${e.stars}" data-rate="${rateNum(e.rate)}" style="cursor:pointer;">
+      <div class="person-img">
+        ${e.image ? `<img src="${e.image}" alt="${e.name}" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">` : e.emoji}
+      </div>
+      <span class="avail-badge">Available</span>
+      <h3 style="font-size:1rem; margin-bottom:4px;">${e.name}</h3>
+      <div class="badge badge-amber" style="margin-bottom:8px;">${e.role}</div>
+      <div style="font-size:0.82rem; color:var(--gray-400); margin-bottom:4px;">📅 ${e.exp} &nbsp;|&nbsp; 📍 ${e.city}</div>
+      <div style="font-size:0.82rem; color:var(--gray-400);">🔧 ${e.spec}</div>
+    </div>`).join('');
+        }
+
+        function renderWorkers(list) {
+            const container = document.getElementById('tab-workers-content');
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--navy-2); border: 1px dashed var(--navy-4); border-radius: var(--radius);">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">👷</div>
+                        <h3 style="margin-bottom: 8px;">No Workers Registered Yet</h3>
+                        <p style="color: var(--gray-400); font-size: 0.9rem;">Start of the season is busy! Check back soon for available skilled labor.</p>
+                    </div>`;
+                return;
+            }
+            container.innerHTML = list.map(w => `
+    <div class="glass-card" style="padding:20px;" onclick="openProfile('${w.id}','worker')"
+      data-name="${w.name}" data-city="${w.city}" data-stars="${w.stars}" data-rate="${rateNum(w.rate)}" style="cursor:pointer;">
+      <div class="person-img">
+         ${w.image ? `<img src="${w.image}" alt="${w.name}" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">` : w.emoji}
+      </div>
+      <span class="avail-badge">Available</span>
+      <h3 style="font-size:1rem; margin-bottom:4px;">${w.name}</h3>
+      <div class="badge badge-amber" style="margin-bottom:8px;">${w.role}</div>
+      <div style="font-size:0.82rem; color:var(--gray-400);">📅 ${w.exp} &nbsp;|&nbsp; 📍 ${w.city}</div>
+    </div>`).join('');
+        }
+
+        function rateNum(r) {
+            if (typeof r === 'number') return r;
+            return parseInt(r?.replace(/[₹,]/g, '') || 0);
+        }
+
+        /* ── Tabs ─────────────────────────────────────────────────────── */
+        function showTab(tab, btn) {
+            currentTab = tab;
+            ['materials', 'engineers', 'workers'].forEach(t => {
+                document.getElementById('tab-' + t + '-content').classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active');
+            });
+            document.getElementById('tab-' + tab + '-content').classList.remove('hidden');
+            if (btn) btn.classList.add('active');
+            applyFilters();
+        }
+
+        /* ── Filters ─────────────────────────────────────────────────────── */
+        function applyFilters() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const city = document.getElementById('locationFilter').value.toLowerCase();
+            const stars = document.getElementById('ratingFilter')?.value || 'all';
+            const price = document.getElementById('priceFilter')?.value || 'all';
+
+            const container = document.getElementById('tab-' + currentTab + '-content');
+            if (!container) return;
+
+            container.querySelectorAll('.glass-card').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const cCity = (card.dataset.city || '').toLowerCase();
+                const cStar = parseInt(card.dataset.stars || 5);
+                const cRate = parseInt(card.dataset.rate || 0);
+
+                let show = true;
+                if (search && !text.includes(search)) show = false;
+                if (city && !cCity.includes(city)) show = false;
+                if (stars == '5' && cStar < 5) show = false;
+                if (stars == '4' && cStar < 4) show = false;
+                if (price == 'low' && cRate >= 1000) show = false;
+                if (price == 'high' && cRate < 1000) show = false;
+
+                card.style.display = show ? '' : 'none';
+            });
+        }
+
+        /* ── Cart ─────────────────────────────────────────────────────── */
+        async function addToCart(id, sellerId, qty) {
+            const m = MATERIALS.find(x => x.id === id);
+            if (!m) return;
+
+            if (isLoggedIn) {
+                try {
+                    const res = await fetch('/api/cart/add', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ materialId: id, qty, sellerId })
+                    });
+                    if (!res.ok) throw new Error('Failed');
+                    toast('✅ ' + m.name + ' added to cart!', 'success');
+                    await loadCartFromServer();
+                } catch {
+                    toast('❌ Error adding to cart', 'error');
+                }
+            } else {
+                toast('⚠️ Please login to add items to cart!', 'warning');
+                setTimeout(() => window.location.href = 'login.html', 1500);
+            }
+        }
+
+        let currentPDPItem = null;
+
+        async function openPDP(id) {
+            const m = MATERIALS.find(x => x.id === id);
+            if (!m) return;
+            currentPDPItem = m;
+
+            // Basic details
+            document.getElementById('pdpTitle').textContent = m.name;
+            document.getElementById('pdpMainImg').src = m.image || '';
+            document.getElementById('pdpStars').innerHTML = starsHtml(Math.round(m.rating || 5));
+            document.getElementById('pdpReviewCount').textContent = (m.reviewCount || 0).toLocaleString() + ' ratings';
+            document.getElementById('pdpDescription').textContent = m.description || 'No description available for this product.';
+            document.getElementById('pdpBreadcrumb').textContent = `Materials › ${m.category}`;
+
+            // Show modal
+            document.getElementById('pdpModal').classList.add('open');
+
+            // Default tab
+            switchPDPTab('specs', document.querySelector('.pdp-tab-btn.active'));
+
+            // Fetch sellers & inventory
+            try {
+                const res = await fetch(`/api/materials/${id}/sellers`);
+                const sellers = await res.json();
+
+                if (sellers.length > 0) {
+                    // Buy Box Logic: Filter by cheapest price
+                    const sorted = [...sellers].sort((a, b) => a.price - b.price);
+                    const best = sorted[0];
+
+                    document.getElementById('buyBoxPrice').textContent = best.price.toLocaleString();
+                    document.getElementById('buyBoxSoldBy').textContent = best.business;
+                    document.getElementById('buyBoxStock').textContent = best.stock > 0 ? 'In Stock' : 'Currently Unavailable';
+                    document.getElementById('buyBoxStock').className = best.stock > 0 ? 'stock-status in-stock' : 'stock-status';
+
+                    document.getElementById('buyBoxPrime').innerHTML = best.isPrime ? `
+                        <div style="display:inline-flex; align-items:center; gap:4px; margin-top:4px;">
+                            <span style="color:#00a8e1; font-weight:800; font-style:italic; font-size:0.9rem;">✔ prime</span>
+                        </div>` : '';
+
+                    document.getElementById('pdpAddToCart').onclick = () => addToCart(m.id, best.sellerId, 1);
+                    document.getElementById('pdpBuyNow').onclick = () => {
+                        addToCart(m.id, best.sellerId, 1);
+                        setTimeout(() => toggleCart(), 500);
+                    };
+
+                    // Other sellers
+                    const others = sorted.slice(1);
+                    const otherList = document.getElementById('otherSellersList');
+                    if (others.length > 0) {
+                        otherList.innerHTML = others.map(s => `
+                        <div>
+                            <span style="color:#007185; cursor:pointer;" onclick="openShopProfile('${s.sellerId}')">${s.business}</span>
+                        </div>`).join('');
+                    } else {
+                        otherList.innerHTML = '<div style="color:var(--gray-400); font-size:0.8rem;">No other sellers currently available.</div>';
+                    }
+                } else {
+                    document.getElementById('buyBoxPrice').textContent = 'N/A';
+                    document.getElementById('buyBoxSoldBy').textContent = 'None';
+                    document.getElementById('otherSellersList').innerHTML = 'No sellers found.';
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function switchPDPTab(tab, btn) {
+            if (!currentPDPItem) return;
+
+            // UI feedback
+            document.querySelectorAll('.pdp-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const content = document.getElementById('pdpTabContent');
+
+            if (tab === 'specs') {
+                const specs = currentPDPItem.specs || [];
+                if (specs.length === 0) {
+                    content.innerHTML = '<p style="font-size:0.85rem; color:var(--gray-500);">No technical specifications available.</p>';
+                } else {
+                    content.innerHTML = `
+                        <table class="specs-table">
+                            ${specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('')}
+                        </table>
+                    `;
+                }
+            } else if (tab === 'reviews') {
+                const reviews = currentPDPItem.reviews || [];
+                if (reviews.length === 0) {
+                    content.innerHTML = '<p style="font-size:0.85rem; color:var(--gray-500);">No customer reviews yet. Be the first to review!</p>';
+                } else {
+                    content.innerHTML = `
+                        <div style="display:flex; flex-direction:column; gap:15px; margin-top:10px;">
+                            ${reviews.map(r => `
+                                <div class="review-item">
+                                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                                        <div style="width:28px; height:28px; background:var(--navy-3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;">👤</div>
+                                        <span style="font-weight:700; font-size:0.88rem;">${r.user}</span>
+                                    </div>
+                                    <div style="margin-bottom:4px;">${starsHtml(r.rating)} <span style="font-weight:700; font-size:0.85rem; margin-left:5px;">Verified Purchase</span></div>
+                                    <div style="font-size:0.8rem; color:var(--gray-400); margin-bottom:8px;">Reviewed on ${r.date}</div>
+                                    <p style="font-size:0.88rem; line-height:1.4;">${r.comment}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        /* ── Sellers logic ─────────────────────────────────────────────── */
+        async function openSellers(id) {
+            const m = MATERIALS.find(x => x.id === id);
+            if (!m) return;
+
+            document.getElementById('mIcon').textContent = m.icon;
+            document.getElementById('mName').textContent = m.name;
+            document.getElementById('mSub').textContent = m.sub;
+
+            const list = document.getElementById('sellersList');
+            list.innerHTML = '<div class="loader">🔍 Looking for sellers nearby...</div>';
+
+            document.getElementById('sellersModal').classList.add('open');
+
+            try {
+                const res = await fetch(`/api/materials/${id}/sellers`);
+                const sellers = await res.json();
+
+                if (sellers.length === 0) {
+                    list.innerHTML = '<p style="text-align:center; padding:20px; color:var(--gray-400);">No sellers found for this item.</p>';
+                    return;
+                }
+
+                list.innerHTML = sellers.map(s => `
+                    <div style="background:var(--navy-3); border:1px solid var(--navy-4); border-radius:12px; padding:20px; display:flex; justify-content:space-between; align-items:center; transition:var(--transition);" class="seller-item-hover">
+                        <div style="flex: 1;">
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                                <div style="font-weight:800; color:var(--white); font-size:1.1rem; cursor:pointer;" onclick="openShopProfile('${s.sellerId}')">${s.business || s.sellerName}</div>
+                                ${s.stock > 0 ? `<span class="badge badge-success" style="font-size:0.7rem; padding:2px 8px;">In Stock</span>` : `<span class="badge badge-danger" style="font-size:0.7rem; padding:2px 8px;">Out of Stock</span>`}
+                            </div>
+                            <div style="font-size:0.85rem; color:var(--gray-400); display:flex; gap:12px; align-items:center;">
+                                <span>📍 ${s.city}</span>
+                                 <span>🕒 ${s.openingHours || '9 AM - 8 PM'}</span>
+                            </div>
+                            <button class="btn btn-amazon btn-full" style="padding:12px 24px; min-width:140px;" onclick="addToCart(${id}, '${s.sellerId}', 1)">Add to Cart 🛒</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                list.innerHTML = '<p style="text-align:center; padding:20px; color:var(--danger);">Error loading sellers.</p>';
+            }
+        }
+
+        async function openShopProfile(id) {
+            closeModal('sellersModal');
+            document.getElementById('shopModal').classList.add('open');
+
+            const invContainer = document.getElementById('shopInventory');
+            invContainer.innerHTML = '<div class="loader">🏗️ Loading shop...</div>';
+
+            try {
+                const res = await fetch(`/api/sellers/${id}`);
+                const shop = await res.json();
+
+                document.getElementById('shopBusiness').textContent = shop.business;
+                document.getElementById('shopName').textContent = shop.name;
+                document.getElementById('shopInitial').textContent = shop.name.charAt(0).toUpperCase();
+                document.getElementById('shopBio').textContent = shop.shopDetails?.bio || 'No description available.';
+                document.getElementById('shopHours').innerHTML = `🕒 ${shop.shopDetails?.openingHours || '9 AM - 8 PM'}`;
+                document.getElementById('shopLocation').innerHTML = `📍 ${shop.city}`;
+                document.getElementById('shopStatus').textContent = shop.shopDetails?.status || 'Active Member';
+
+                const offers = document.getElementById('shopOffers');
+                if (shop.shopDetails?.offers && shop.shopDetails.offers.length > 0) {
+                    offers.innerHTML = `<div style="background:var(--amber-glow); border:1px dashed var(--amber); border-radius:var(--radius-sm); padding:12px;">
+                        <span style="font-weight:800; color:var(--amber); font-size:0.8rem; display:block; margin-bottom:4px;">🎁 ACTIVE OFFERS</span>
+                        ${shop.shopDetails.offers.map(o => `<div style="font-size:0.85rem; font-weight:600;">· ${o}</div>`).join('')}
+                    </div>`;
+                } else {
+                    offers.innerHTML = '';
+                }
+
+                invContainer.innerHTML = shop.inventory.map(item => `
+                    <div style="background:var(--navy-2); border:1px solid var(--navy-4); border-radius:var(--radius-sm); padding:12px; text-align:center;">
+                        <div style="font-size:2rem; margin-bottom:4px;">${item.icon}</div>
+                        <div style="font-size:0.85rem; font-weight:700;">${item.name}</div>
+                        <button class="btn btn-primary btn-sm btn-full" style="margin-top:8px; font-size:0.75rem;" onclick="addToCart(${item.id}, '${shop.id}', 1)">Add to Cart</button>
+                    </div>
+                `).join('');
+
+            } catch (err) {
+                invContainer.innerHTML = '<p>Error loading shop inventory.</p>';
+            }
+        }
+
+        async function loadCartFromServer() {
+            try {
+                const res = await fetch('/api/cart');
+                if (res.ok) { cart = await res.json(); updateBadge(); }
+            } catch { }
+        }
+
+        function updateBadge() {
+            const total = cart.reduce((s, i) => s + i.qty, 0);
+            const badge = document.getElementById('cartBadge');
+            badge.textContent = total;
+            badge.classList.toggle('hidden', total === 0);
+        }
+
+        function toggleCart() {
+            document.getElementById('cartOverlay').classList.toggle('open');
+            renderCart();
+        }
+
+        function handleCartOverlayClick(e) {
+            if (e.target === document.getElementById('cartOverlay')) toggleCart();
+        }
+
+        function renderCart() {
+            const body = document.getElementById('cartBody');
+            const foot = document.getElementById('cartFooter');
+            if (cart.length === 0) {
+                body.innerHTML = '<div class="cart-empty"><div class="ci">🛒</div><p>Your cart is empty.<br/>Add materials to get started.</p></div>';
+                if (foot) foot.style.display = 'none';
+                return;
+            }
+            body.innerHTML = cart.map((item, idx) => `
+    <div class="cart-item">
+      <div class="cart-item-icon">${item.icon}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-meta">Shop: ${item.sellerName || 'Direct'}</div>
+        <div class="cart-item-meta">Qty: ${item.qty}</div>
+      </div>
+      <button class="cart-remove" onclick="removeCart(${idx})">🗑</button>
+    </div>`).join('');
+            const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            const totalEl = document.getElementById('cartTotal');
+            if (totalEl) totalEl.textContent = '₹' + total.toLocaleString();
+            
+            if (foot) foot.style.display = 'block';
+        }
+
+        async function removeCart(idx) {
+            if (isLoggedIn) {
+                try {
+                    const item = cart[idx];
+                    await fetch('/api/cart/' + item.id, { method: 'DELETE' });
+                } catch { }
+            }
+            cart.splice(idx, 1);
+            updateBadge();
+            renderCart();
+        }
+
+        function checkout() {
+            if (!isLoggedIn) {
+                toast('⚠️ Please login to place an order!', 'warning');
+                setTimeout(() => window.location.href = 'login.html', 1500);
+                return;
+            }
+            if (cart.length === 0) {
+                toast('🛒 Your cart is empty!', 'warning');
+                return;
+            }
+            // Render summary
+            const summary = document.getElementById('checkoutSummary');
+            if (cart.length === 0) {
+                summary.innerHTML = '<p style="text-align:center; color:var(--gray-500);">Cart is empty</p>';
+            } else {
+                summary.innerHTML = cart.map(item => `
+                    <div class="summary-item">
+                        <span>${item.qty}x ${item.name}</span>
+                    </div>
+                `).join('');
+            }
+
+            // Show the delivery details modal
+            document.getElementById('checkoutModal').classList.add('open');
+            toggleCart(); // Close cart drawer
+        }
+
+        async function performCheckout() {
+            const address = document.getElementById('checkoutAddress').value;
+            const location = document.getElementById('checkoutLocation').value;
+
+            if (!address || !location) {
+                toast('⚠️ Please provide both address and location.', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ address, location })
+                });
+
+                if (!res.ok) {
+                    const d = await res.json();
+                    toast(d.error || 'Checkout failed.', 'error');
+                    return;
+                }
+
+                const data = await res.json();
+                toast('🎉 Order placed successfully!', 'success');
+                cart = [];
+                updateBadge();
+                renderCart();
+                closeModal('checkoutModal');
+
+                // Show success modal & Start Automated UI Flow
+                const successModal = document.getElementById('orderSuccessModal');
+                successModal.classList.add('open');
+                successModal.classList.add('scanning-active');
+
+                if (window.autoRedirectTimeout) clearTimeout(window.autoRedirectTimeout);
+                window.autoRedirectTimeout = setTimeout(confirmPayment, 10000);
+            } catch (err) {
+                toast('Network error during checkout.', 'error');
+            }
+        }
+
+        /* ── Profile Modal ─────────────────────────────────────────────── */
+        function openProfile(id, type) {
+            const list = type === 'engineer' ? ENGINEERS : WORKERS;
+            const p = list.find(x => x.id === id);
+            if (!p) return;
+            currentPerson = { ...p, _type: type };
+            document.getElementById('profName').textContent = p.name;
+            const emojiEl = document.getElementById('profEmoji');
+            if (p.image) {
+                emojiEl.innerHTML = `<img src="${p.image}" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">`;
+            } else {
+                emojiEl.textContent = p.emoji || '👤';
+            }
+            document.getElementById('profRole').textContent = p.role;
+            const rateVal = typeof p.rate === 'number' ? p.rate : rateNum(p.rate);
+            document.getElementById('profMeta').innerHTML = `
+    <div class="prof-item"><div class="prof-item-label">Experience</div><div class="prof-item-val">📅 ${p.exp}</div></div>
+    <div class="prof-item"><div class="prof-item-label">City</div><div class="prof-item-val">📍 ${p.city}</div></div>
+    ${p.spec ? `<div class="prof-item" style="grid-column:1/-1;"><div class="prof-item-label">Specialisation</div><div class="prof-item-val">${p.spec}</div></div>` : ''}
+  `;
+            document.getElementById('profileModal').classList.add('open');
+        }
+
+        function hirePerson() {
+            closeModal('profileModal');
+            document.getElementById('hireModal').classList.add('open');
+        }
+
+        async function submitHire() {
+            const loc = document.getElementById('hLocation').value;
+            const date = document.getElementById('hDate').value;
+            if (!loc) { toast('Please enter a project location.', 'error'); return; }
+
+            if (isLoggedIn && currentPerson) {
+                try {
+                    await fetch('/api/hire', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            professionalId: currentPerson.id,
+                            professionalName: currentPerson.name,
+                            professionalType: currentPerson._type || 'engineer',
+                            startDate: date,
+                            location: loc
+                        })
+                    });
+                } catch { }
+            }
+
+            closeModal('hireModal');
+            toast(`🎉 Request for ${currentPerson?.name || 'professional'} sent! View in Dashboard.`, 'success');
+        }
+
+        function confirmPayment() {
+            if (autoRedirectTimeout) clearTimeout(autoRedirectTimeout);
+            document.getElementById('paymentStage').classList.add('hidden');
+            document.getElementById('confirmedStage').classList.remove('hidden');
+            document.getElementById('finalTrackId').textContent = `#BX-${Math.floor(Date.now() / 1000)}`;
+        }
+
+        /* ── Helpers ───────────────────────────────────────────────────── */
+        function b64EncodeUnicode(str) {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+                return String.fromCharCode('0x' + p1);
+            }));
+        }
+        function b64DecodeUnicode(str) {
+            return decodeURIComponent(atob(str).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        }
+
+        function copyToClipboard(b64Text) {
+            const text = b64DecodeUnicode(b64Text);
+            navigator.clipboard.writeText(text).then(() => {
+                toast('📋 Message copied to clipboard!', 'success');
+            }).catch(err => {
+                toast('❌ Failed to copy message.', 'error');
+            });
+        }
+
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            if (id === 'orderSuccessModal') {
+                if (window.autoRedirectTimeout) clearTimeout(window.autoRedirectTimeout);
+                setTimeout(() => {
+                    document.getElementById('paymentStage').classList.remove('hidden');
+                    document.getElementById('confirmedStage').classList.add('hidden');
+                    document.getElementById('orderSuccessModal').classList.remove('scanning-active');
+                }, 300);
+            }
+        }
+
+        /* ── Toast ─────────────────────────────────────────────────────── */
+        function toast(msg, type = '') {
+            const c = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = 'toast ' + (type || '');
+            t.innerHTML = `<span>${msg}</span>`;
+            c.appendChild(t);
+            setTimeout(() => t.remove(), 3100);
+        }
+
+        /* ── Init ─────────────────────────────────────────────────────── */
+        async function init() {
+            // Theme init
+            const savedTheme = localStorage.getItem('ch_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('themeToggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            try {
+                const res = await fetch('/api/me');
+                if (res.ok) {
+                    const user = await res.json();
+                    isLoggedIn = true;
+                    const btn = document.getElementById('accountBtn');
+                    if (btn) btn.textContent = '👤 ' + user.name.split(' ')[0];
+                }
+            } catch { }
+
+            try {
+                const [mRes, eRes, wRes] = await Promise.all([
+                    fetch('/api/marketplace/materials'),
+                    fetch('/api/engineers'),
+                    fetch('/api/workers')
+                ]);
+                MATERIALS = await mRes.json();
+                ENGINEERS = await eRes.json();
+                WORKERS = await wRes.json();
+
+                renderMaterials(MATERIALS);
+                renderEngineers(ENGINEERS);
+                renderWorkers(WORKERS);
+
+                if (isLoggedIn) await loadCartFromServer();
+                else {
+                    cart = JSON.parse(localStorage.getItem('ch_cart') || '[]');
+                    updateBadge();
+                }
+            } catch (err) { console.error("Init error:", err); }
+        }
+
+        init();
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', target);
+            document.getElementById('themeToggle').textContent = target === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('ch_theme', target);
+        }
+
+        /* Keyboard close modals */
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                ['profileModal', 'hireModal', 'sellersModal', 'shopModal'].forEach(id => closeModal(id));
+                document.getElementById('cartOverlay').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+
+</html>
