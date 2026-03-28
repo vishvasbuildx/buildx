@@ -12,7 +12,11 @@
       "dest": "server.js"
     },
     {
-      "src": "/(index\\.html|app\\.html|dashboard\\.html|login\\.html|register\\.html|styles\\.css|upi-qr\\.png)",
+      "src": "/(index\\.html|app\\.html|dashboard\\.html|login\\.html|register\\.html|styles\\.css)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.(jpg|png|svg|ico|webp|gif))",
       "dest": "/$1"
     },
     {
